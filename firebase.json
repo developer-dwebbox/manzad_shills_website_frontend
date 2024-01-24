@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "build",
+    "site":"shills-dev",
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // import { setAuthorizationToken } from "../api/instance";
 
 const initialState = {
-  isAuthenticated:false
+  isAuthenticated:true
 };
 
 export const slice = createSlice({

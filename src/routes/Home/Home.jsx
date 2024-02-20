@@ -1,21 +1,30 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { UnProtectedRoute } from "../routes";
+import { CustomCarousel } from "../../components/Carousel/CustomCarousel";
+import { Box } from "@mui/material";
+import HeroSection from "./HeroSection";
+import SubcategorySection from "./SubcategorySection";
+import ProductCaousel from "../../components/Carousel/ProductCaousel";
+import Banner from "./Banner";
+import Banner2 from "./Banner2";
+import BlogSection from "./BlogSection";
+import Services from "./Services";
 
 const Home = () => {
-  const navigate = useNavigate();
   return (
-    <div>
-      Home Page
-      <button
-        onClick={() => {
-          navigate(UnProtectedRoute.about.paths[0]);
-        }}
-      >
-        About
-      </button>
-    </div>
+    <Box>
+      <Box display={{ md: "block", xs: "none" }}>
+        <HeroSection />
+      </Box>
+      <SubcategorySection />
+      <ProductCaousel title="New Arrivals" />
+      <Banner />
+      <ProductCaousel title="Best Sellers" />
+      <Banner2 />
+      <ProductCaousel title="Last Viewed" />
+      <Services />
+      <BlogSection />
+    </Box>
   );
 };
 
-export default Home
+export default Home;

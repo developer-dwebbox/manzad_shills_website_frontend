@@ -1,13 +1,134 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"),
+    url("./assets/Font/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400; /* Regular (400) */
+  font-style: normal; /* Normal style */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins-Medium"),
+    url("./assets/Font/Poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500; /* Medium (500) */
+  font-style: normal; /* Normal style */
 }
+
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins-Bold"),
+    url("./assets/Font/Poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700; /* Bold (700) */
+  font-style: normal; /* Normal style */
+}
+@font-face {
+  font-family: "digital-7";
+  src: local("digital-7"),
+    url("./assets/Font/digital-7/digital-7.ttf") format("truetype");
+  font-weight: 500; /* Bold (700) */
+  font-style: normal; /* Normal style */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" !important;
+  font-weight: 400;
+}
+body {
+  font-family: "Poppins" !important;
+}
+
+.clock {
+  font-family: "digital-7" !important;
+}
+
+.input-textfield {
+  border: 1px solid #f2f4f9;
+  outline: none;
+  height: 50px;
+  /* padding: 15px 0; */
+  padding-left: 15px;
+  border-radius: 8px;
+  background: #f2f4f9;
+}
+::placeholder {
+  color: #858d97;
+  font-size: 15px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ff6c86;
+  border-radius: 10px;
+  height: 200px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.text-area {
+  font-family: "popins";
+  font-size: 15px;
+  outline: none;
+  padding: 15px;
+  /* background-color: rgba(40, 60, 146, 0.11); */
+  resize: vertical;
+  border: 1px solid #f2f4f9;
+  outline: none;
+  /* padding: 15px 0; */
+  padding-left: 15px;
+  border-radius: 8px;
+  background: #f2f4f9;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  padding-left: 15px;
+}
+
+/* .react-multi-carousel-list{
+  position: static !important;
+} */
+
+.react-multi-carousel-item {
+  padding: 0px 0.6rem;
+}
+.carousel {
+  /* position: 'relative'; */
+  overflow: unset !important;
+}
+/* .MuiBreadcrumbs-separator{
+  color: #465152 !important;
+} */
+/* .arrowRight{
+ top: 32rem !important;
+ right: 1.5rem !important;
+ transform: translate(0) !important;
+}
+
+.arrowLeft{
+  top:32rem !important;
+  left: 1.5rem !important;
+  transform: translate(0) !important
+} */

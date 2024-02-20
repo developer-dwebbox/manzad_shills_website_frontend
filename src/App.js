@@ -10,17 +10,21 @@ import {
 import OutletComponent from "./components/OutletComponent";
 import { useSelector } from "react-redux";
 import PageNotFound from "./components/PageNotFound";
+import { ThemeProvider} from "@mui/material/styles";
+import muiTheme from "./theme/theme";
 
 function App() {
   const location = useLocation();
   return (
     <div>
+      <ThemeProvider theme={muiTheme}>
       <AuthRoutes />
       {ProtectedRouteList.find(
         (dt) => dt[1].paths[0].split("/")[1] === location.pathname.split("/")[1]
       ) ? null : (
         <UnAuthRoutes />
       )}
+      </ThemeProvider>
     </div>
   );
 }

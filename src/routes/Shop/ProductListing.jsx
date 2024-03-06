@@ -3,6 +3,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   Box,
+  Button,
   FormControl,
   Grid,
   InputLabel,
@@ -26,7 +27,7 @@ const ProductListing = () => {
     <Box my={4} px={2}>
       <Box>
         <Grid container>
-          <Grid item md={2}>
+          <Grid item md={2} display={{ xs: "none", md: "flex" }}>
             {/* {QuickLinkdata.m} */}
             <Box px={1}>
               <Box>
@@ -57,6 +58,8 @@ const ProductListing = () => {
                   <Accordion
                     sx={{
                       border: "none",
+                      boxShadow: "none",
+                      p:0,
                       "&:before": {
                         display: "none",
                         boxShadow: "none",
@@ -81,6 +84,9 @@ const ProductListing = () => {
                     </AccordionSummary>
                     <AccordionDetails
                       sx={{
+                        p: 0,
+                        my:1,
+                        cursor: "pointer",
                         "&:before": {
                           display: "none",
                         },
@@ -106,7 +112,7 @@ const ProductListing = () => {
                   <FormControl
                     sx={{
                       m: 1,
-                      minWidth: 200,
+                      minWidth: { xs: 150, md: 200 },
                       outline: "1px solid #FF6C86",
                       borderRadius: 1,
                     }}
@@ -117,6 +123,7 @@ const ProductListing = () => {
                       sx={{
                         outline: "none",
                         color: "#465152",
+                        fontSize: { xs: ".7rem", md: "1rem" },
                       }}
                     >
                       Sort by popularity
@@ -155,14 +162,15 @@ const ProductListing = () => {
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   <Typography
                     variant="h4"
-                    sx={{ color: "#465152", fontSize: "1rem" }}
+                    sx={{ color: "#465152", fontSize: { xs: ".7rem", md: "1rem" },}}
+                    
                   >
                     No. of Products
                   </Typography>
                   <FormControl
                     sx={{
                       m: 1,
-                      minWidth: 70,
+                      minWidth:{xs:50,md: 70},
                       outline: "1px solid #FF6C86",
                       borderRadius: 1,
                     }}
@@ -201,6 +209,30 @@ const ProductListing = () => {
                   </FormControl>
                 </Box>
               </Box>
+              <Box display={{ xs: "flex", md: "none" }}>
+                <Button
+                  variant="contained"
+                  sx={{
+                    mt: 4,
+                    // width: { xs: "70%", sm: "30%" },
+                    bgcolor: "#FF6C86",
+                    borderRadius: "50px",
+                    color: "#fff",
+                    fontSize: { xs: ".85rem", md: "1rem" },
+                    textTransform: "capitalize",
+                    px: 4,
+                    py: { xs: 1, md: 2 },
+                    boxShadow: "none",
+                    // border: "2px solid #FF6C86",
+                    ":hover": {
+                      bgcolor: "#FF6C86",
+                      boxShadow: "none",
+                    },
+                  }}
+                >
+                  Filter
+                </Button>
+              </Box>
               <Box
                 display={"flex"}
                 justifyContent={"start"}
@@ -208,7 +240,7 @@ const ProductListing = () => {
                 gap={{ md: 1, xs: 0 }}
               >
                 {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((dt) => (
-                  <Box width={{ md: 240, xs: 220 }}>
+                  <Box width={{ xs: 160, sm: 180, md: 220 }}>
                     <ProductCards />
                   </Box>
                 ))}

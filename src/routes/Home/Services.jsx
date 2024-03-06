@@ -18,7 +18,7 @@ const Services = () => {
                 flexDirection={"column"}
               >
                 <Box
-                  height={35}
+                  height={{md:35,xs:30}}
                   alignContent={"center"}
                   display={"flex"}
                   justifyContent={"center"}
@@ -31,7 +31,7 @@ const Services = () => {
                   width={"70%"}
                   sx={{
                     color: "#858D97",
-                    fontSize: "1rem",
+                    fontSize: {xs:'0.8rem',md:"1rem"},
                     textAlign: "center",
                   }}
                 >

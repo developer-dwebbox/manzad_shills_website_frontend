@@ -10,7 +10,7 @@ const ShoppingCard = () => {
   return (
     <Grid
       container
-      minWidth={"750px"}
+      minWidth={{xs:'550px',md:"750px"}}
       my={2}
       //   bgcolor={qty % moq !== 0 ? "#FFF2CF" : "#F3F6F9"}
       sx={{
@@ -29,7 +29,7 @@ const ShoppingCard = () => {
               color: "#858D97",
               fontWeight: 400,
               marginX: 2,
-              fontSize: ".9rem",
+              fontSize: {xs:'.8rem',md:'.9rem'}
             }}
           >
             Product ID: 123466
@@ -41,7 +41,7 @@ const ShoppingCard = () => {
               color: "#2D2C2C",
               fontWeight: 500,
               marginX: 2,
-              fontSize: "1.1rem",
+              fontSize: {xs:'.9rem',md:'1.1rem'}
             }}
           >
             24HR Full Coverage Foundation
@@ -141,6 +141,7 @@ const ShoppingCard = () => {
             color: "#2D2C2C",
             fontWeight: 500,
             // marginY: 3,
+            fontSize: {xs:'.9rem',md:'1rem'}
           }}
         >
           ₹ 400 

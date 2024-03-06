@@ -27,11 +27,13 @@ import { CustomCarousel } from "../../components/Carousel/CustomCarousel";
 import TextField from "../../components/CustomComponent/TextField";
 import TextArea from "../../components/CustomComponent/TextArea";
 import ProductCaousel from "../../components/Carousel/ProductCaousel";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetails = () => {
   const [imagesSrc, setImagesSrc] = useState(DummyImgBg);
 
   const images = [DummyImgSm, DummyImgSm, DummyImgSm, DummyImgSm];
+  const navigate = useNavigate();
   return (
     <Box mb={4}>
       <Box
@@ -43,11 +45,18 @@ const ProductDetails = () => {
         <Box py={4}>
           <Typography
             variant="h4"
-            sx={{ fontSize: "2rem", fontWeight: "", textAlign: "center" }}
+            sx={{
+              fontSize: { xs: "1.25rem",sm:"1.5rem", md: "2rem" },
+              fontWeight: "",
+              textAlign: "center",
+            }}
           >
             Product Details
           </Typography>
-          <Typography variant="h4" sx={{ fontSize: "1rem", fontWeight: "" }}>
+          <Typography
+            variant="h4"
+            sx={{ fontSize: { xs: ".75rem",sm:".875", md: "1rem" }, fontWeight: "" }}
+          >
             {" "}
             {" Home > Shop > Nail Art > Gel Polish > Gel Polish 15ml 31-60"}
           </Typography>
@@ -61,21 +70,36 @@ const ProductDetails = () => {
           sx={{ px: { md: "1rem" }, overflow: "hidden" }}
         >
           <Grid container spacing={1}>
-            <Grid item xs={12} sx={{ aspectRatio: 1 }}>
+            <Grid
+              item
+              xs={12}
+              sx={{
+                aspectRatio: 1,
+                height: { xs: "60vh", md: "100%" },
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <LazyLoadImage
                 src={imagesSrc}
                 effect="blur"
-                width="100%"
+                // width="100%"
                 height="100%"
                 style={{ width: "100%", aspectRatio: 1, cursor: "pointer" }}
               />
             </Grid>
             {images.map((item) => (
-              <Grid item key={item} xs={3}>
+              <Grid
+                item
+                key={item}
+                xs={3}
+                sx={{ height: { xs: "15vh", sm: "22vh", md: "100%" } }}
+              >
                 <LazyLoadImage
                   src={item}
                   effect="blur"
                   alt="product"
+                  height="100%"
                   style={{ width: "100%", cursor: "pointer" }}
                   onClick={() => setImagesSrc(item)}
                 />
@@ -93,19 +117,27 @@ const ProductDetails = () => {
           >
             <Box display={"flex"} justifyContent={"space-between"}>
               <Box>
-                <Typography sx={{ fontSize: "1.25rem", fontWeight: "400" }}>
+                <Typography
+                  sx={{
+                    fontSize: { xs: "1rem", md: "1.25rem" },
+                    fontWeight: "400",
+                  }}
+                >
                   Gel Polish 15ml 31-60
                 </Typography>
                 <Box display={"flex"} alignItems={"center"} gap={2}>
                   <Rating
                     name="read-only"
-                    sx={{ color: "#FFD480" }}
+                    sx={{
+                      color: "#FFD480",
+                      fontSize: { xs: "1.25rem", md: "1.75rem" },
+                    }}
                     value={4}
                     readOnly
                   />
                   <Typography
                     sx={{
-                      fontSize: "0.9rem",
+                      fontSize: { xs: ".75rem", md: ".9rem" },
                       fontWeight: "400",
                       color: "#465152",
                     }}
@@ -114,7 +146,7 @@ const ProductDetails = () => {
                   </Typography>
                 </Box>
               </Box>
-              <Box sx={{ height: 25 }}>
+              <Box sx={{ height: { xs: 20, md: 25 } }}>
                 <img src={wishlist} alt="" srcset="" height={"100%"} />
               </Box>
             </Box>
@@ -123,30 +155,62 @@ const ProductDetails = () => {
                 {data.map((dt) => (
                   <ListItem sx={{ display: "list-item", p: 0 }}>
                     <Box display={"flex"} gap={1}>
-                      <Typography color={"#465152"} fontWeight={500}>
+                      <Typography
+                        color={"#465152"}
+                        fontWeight={500}
+                        fontSize={{ xs: ".75rem", md: ".9rem" }}
+                      >
                         {dt.name}:
                       </Typography>
-                      <Typography color={"#465152"}>{dt.value}</Typography>
+                      <Typography
+                        color={"#465152"}
+                        fontSize={{ xs: ".75rem", md: ".9rem" }}
+                      >
+                        {dt.value}
+                      </Typography>
                     </Box>
                   </ListItem>
                 ))}
               </List>
             </Box>
-            <Box p={2} display={"flex"} gap={1} alignItems={"center"}>
+            <Box
+              p={2}
+              display={"flex"}
+              gap={1}
+              alignItems={"center"}
+              pl={{ xs: 0, md: 2 }}
+            >
               <img src={Instock} alt="" height={18} />
-              <Typography sx={{ color: "#25CF7E" }}>InStock</Typography>
+              <Typography
+                sx={{ color: "#25CF7E", fontSize: { xs: ".8rem", md: "1rem" } }}
+              >
+                InStock
+              </Typography>
             </Box>
-            <Typography sx={{ color: "#FF6C86", fontSize: "1.25rem" }} my={2}>
+            <Typography
+              sx={{ color: "#FF6C86", fontSize: { xs: "1rem", md: "1.25rem" } }}
+              my={2}
+            >
               MRP : ₹330
             </Typography>
-            <Typography sx={{ color: "#2D2C2C" }}>Gel polish 31-60</Typography>
-            <Typography sx={{ color: "#858D97", fontSize: ".875rem" }} mb={2}>
+            <Typography
+              sx={{ color: "#2D2C2C", fontSize: { xs: "1rem", md: "1.25rem" } }}
+            >
+              Gel polish 31-60
+            </Typography>
+            <Typography
+              sx={{
+                color: "#858D97",
+                fontSize: { xs: ".75rem", md: ".875rem" },
+              }}
+              mb={2}
+            >
               Available in 10 shades
             </Typography>
             <Box
               sx={{
                 display: "flex",
-                justifyContent: { xs: "center", sm: "start" },
+                justifyContent: { xs: "start", sm: "start" },
                 flexWrap: "wrap",
                 gap: { sm: 2, xs: 1 },
                 my: 2,
@@ -161,27 +225,44 @@ const ProductDetails = () => {
                   pl={0}
                   minWidth={100}
                 >
-                  <Box>
-                    <img src={shade} alt="" height={90} />
-                    <Typography sx={{ color: "#465152", fontSize: ".9rem" }}>
+                  <Box height={{ xs: 50, md: 90 }}>
+                    <img src={shade} alt="" height={"100%"} />
+                    <Typography
+                      sx={{
+                        color: "#465152",
+                        fontSize: { xs: ".75rem", md: ".875rem" },
+                      }}
+                    >
                       Shade 014
                     </Typography>
                   </Box>
                 </Box>
               ))}
             </Box>
-            <Typography sx={{ color: "#465152", fontSize: "1.rem" }} mb={2}>
+            <Typography
+              sx={{ color: "#465152", fontSize: { xs: ".875rem", md: "1rem" } }}
+              mb={2}
+            >
               SKU: B1000
             </Typography>
             <Box
               sx={{
                 display: "flex",
-                placeItems: "center",
+                // placeItems: "center",
                 justifyContent: "space-between",
+                width: "100%",
+                gap: 2,
+                flexDirection: { xs: "column", md: "row" },
               }}
-              pr={8}
+              // pr={{md:8}}
             >
-              <Box sx={{ display: "flex", placeItems: "center" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  placeItems: "center",
+                  // width: { xs: "100%" },
+                }}
+              >
                 <Button
                   // disabled={quantity == 0 || parseInt(CARTNO)}
                   sx={{
@@ -189,19 +270,12 @@ const ProductDetails = () => {
                     backgroundColor: "#F2F4F9",
                     "&:hover": {
                       backgroundColor: "#D7F1FF",
-                      // color: "#0281C6",
                     },
                     borderRadius: 3,
-                    // borderBottomLeftRadius: 50,
                     minWidth: "auto",
                     minHeight: "auto",
-                    // width: "3rem",
                     aspectRatio: 1,
                   }}
-                  // onClick={() => {
-                  //   if (quantity - 1 < parseInt(MOQ)) return;
-                  //   setQuantity(quantity - parseInt(MOQ));
-                  // }}
                 >
                   <RemoveIcon />
                 </Button>
@@ -260,49 +334,56 @@ const ProductDetails = () => {
                   <AddIcon />
                 </Button>
               </Box>
-              <Box>
-                <Button
-                  // onClick={()=>navigate(routes.login.paths[0])}
-                  variant="contained"
-                  sx={{
-                    width: "100%",
-                    height: "100%",
-                    bgcolor: "#FF6C86",
-                    borderRadius: "25px",
-                    color: "#fff",
-                    fontSize: "1rem",
-                    textTransform: "capitalize",
-                    px: 8,
-                    py: 1,
-                    ":hover": {
+              <Box
+                width={"100%"}
+                display={"flex"}
+                gap={2}
+                mt={{ xs: 2, md: 0 }}
+              >
+                <Box>
+                  <Button
+                    // onClick={()=>navigate(routes.login.paths[0])}
+                    variant="contained"
+                    sx={{
+                      // width: "100%",
+                      height: "100%",
                       bgcolor: "#FF6C86",
-                    },
-                  }}
-                >
-                  Add To Cart
-                </Button>
-              </Box>
-              <Box>
-                <Button
-                  // onClick={()=>navigate(routes.login.paths[0])}
-                  variant="contained"
-                  sx={{
-                    width: "100%",
-                    height: "100%",
-                    bgcolor: "#FF6C86",
-                    borderRadius: "25px",
-                    color: "#fff",
-                    fontSize: "1rem",
-                    textTransform: "capitalize",
-                    px: 8,
-                    py: 1,
-                    ":hover": {
+                      borderRadius: "25px",
+                      color: "#fff",
+                      fontSize: "1rem",
+                      textTransform: "capitalize",
+                      px: 3,
+                      py: 1,
+                      ":hover": {
+                        bgcolor: "#FF6C86",
+                      },
+                    }}
+                  >
+                    Add To Cart
+                  </Button>
+                </Box>
+                <Box>
+                  <Button
+                    // onClick={()=>navigate(routes.login.paths[0])}
+                    variant="contained"
+                    sx={{
+                      width: "100%",
+                      height: "100%",
                       bgcolor: "#FF6C86",
-                    },
-                  }}
-                >
-                  Buy Now
-                </Button>
+                      borderRadius: "25px",
+                      color: "#fff",
+                      fontSize: "1rem",
+                      textTransform: "capitalize",
+                      px: 3,
+                      py: 1,
+                      ":hover": {
+                        bgcolor: "#FF6C86",
+                      },
+                    }}
+                  >
+                    Buy Now
+                  </Button>
+                </Box>
               </Box>
             </Box>
             <Box
@@ -311,7 +392,7 @@ const ProductDetails = () => {
               flexWrap={"wrap"}
               my={2}
             >
-              <Box display={"flex"} gap={2} alignItems={"center"}>
+              <Box display={"flex"} gap={2} alignItems={"center"} onClick={()=>navigate('/compare')} sx={{cursor:'pointer'}}>
                 <img src={compare} height={20} alt="" />
                 <Typography sx={{ color: "#FF6C86", fontSize: ".9rem" }}>
                   Compare
@@ -351,12 +432,18 @@ const ProductDetails = () => {
             padding: 4,
           }}
         >
-          <Typography sx={{ fontSize: "1.5rem", fontWeight: "400", mb: 1 }}>
+          <Typography
+            sx={{
+              fontSize: { xs: "1rem", md: "1.5rem" },
+              fontWeight: "400",
+              mb: 1,
+            }}
+          >
             Description
           </Typography>
           <Typography
             sx={{
-              fontSize: "0.9rem",
+              fontSize: { xs: ".75rem", md: ".9rem" },
               fontWeight: "400",
               color: "#2D2C2C",
               width: "90%",
@@ -372,14 +459,20 @@ const ProductDetails = () => {
             environmentally friendly materials, free from poisonous or pungent
             chemicals
           </Typography>
-          <Typography sx={{ fontSize: "1.5rem", fontWeight: "400", mb: 1 }}>
+          <Typography
+            sx={{
+              fontSize: { xs: "1rem", md: "1.5rem" },
+              fontWeight: "400",
+              mb: 1,
+            }}
+          >
             How to Use
           </Typography>
           <Box mb={3}>
             {howToues.map((data, id) => (
               <Typography
                 sx={{
-                  fontSize: "0.9rem",
+                  fontSize: { xs: ".75rem", md: ".9rem" },
                   fontWeight: "400",
                   color: "#2D2C2C",
                   width: "90%",
@@ -396,7 +489,7 @@ const ProductDetails = () => {
           sx={{
             borderRadius: 3,
             boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-            padding: 4,
+            padding: { xs: 2, md: 4 },
           }}
         >
           <Box
@@ -408,7 +501,7 @@ const ProductDetails = () => {
           >
             <Typography
               sx={{
-                fontSize: "1.5rem",
+                fontSize: { xs: "1rem", md: "1.5rem" },
                 fontWeight: "400",
                 mb: 1,
                 textAlign: "center",
@@ -418,13 +511,17 @@ const ProductDetails = () => {
             </Typography>
             <Rating
               name="read-only"
-              sx={{ color: "#FFD480", mb: 1 }}
+              sx={{
+                color: "#FFD480",
+                mb: 1,
+                fontSize: { xs: "1.25rem", md: "1.75rem" },
+              }}
               value={4}
               readOnly
             />
             <Typography
               sx={{
-                fontSize: "0.9rem",
+                fontSize: { xs: ".75rem", md: ".9rem" },
                 fontWeight: "400",
                 color: "#465152",
               }}
@@ -437,11 +534,14 @@ const ProductDetails = () => {
               <Box display={"flex"} alignItems={"center"} gap={2}>
                 <Rating
                   name="read-only"
-                  sx={{ color: "#FFD480" }}
+                  sx={{
+                    color: "#FFD480",
+                    fontSize: { xs: "1.25rem", md: "1.75rem" },
+                  }}
                   value={4}
                   readOnly
                 />
-                <Box width={275}>
+                <Box width={{ xs: 175, md: 275 }}>
                   <LinearProgress
                     value={50 - data * 6}
                     variant="determinate"
@@ -450,7 +550,7 @@ const ProductDetails = () => {
                 </Box>
                 <Typography
                   sx={{
-                    fontSize: "0.9rem",
+                    fontSize: { xs: ".75rem", md: ".9rem" },
                     fontWeight: "400",
                     color: "#465152",
                   }}
@@ -463,17 +563,17 @@ const ProductDetails = () => {
           <Box my={4}>
             <Typography
               sx={{
-                fontSize: "1.25rem",
+                fontSize: { xs: "1rem", md: "1.25rem" },
                 fontWeight: "400",
                 mb: 3,
               }}
             >
               Customer Photos
             </Typography>
-            <CustomCarousel items={{ lg: 6, md: 4, sm: 2, xs: 1 }}>
+            <CustomCarousel items={{ lg: 5, md: 4, sm: 3, xs: 3 }}>
               {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((dt) => (
-                <Box key={dt}>
-                  <img src={customerPhoto} alt="" />
+                <Box key={dt} minWidth={{ xs: 100, md: 150 }}>
+                  <img src={customerPhoto} alt="" width={"100%"} />
                 </Box>
               ))}
             </CustomCarousel>
@@ -484,7 +584,7 @@ const ProductDetails = () => {
                     <Box display={"flex"} gap={2} alignItems={"center"}>
                       <Typography
                         sx={{
-                          fontSize: "1.1rem",
+                          fontSize: { xs: ".9rem", md: "1.1rem" },
                           fontWeight: "500",
                         }}
                       >
@@ -502,17 +602,20 @@ const ProductDetails = () => {
                         width={"fit-content"}
                         display={"flex"}
                         // p={1}
-                        px={3}
+                        px={{ xs: 1, md: 3 }}
                         gap={1}
                         borderRadius={25}
+                        fontSize={{ xs: ".9rem", md: "1.1rem" }}
                       >
                         {review.reviewPoints}{" "}
-                        <Typography fontSize={"1rem"}>★</Typography>
+                        <Typography fontSize={{ xs: ".9rem", md: "1rem" }}>
+                          ★
+                        </Typography>
                       </Box>
                     </Box>
                     <Typography
                       sx={{
-                        fontSize: "1rem",
+                        fontSize: { xs: ".9rem", md: "1rem" },
                         fontWeight: "500",
                         color: "#2D2C2C",
                       }}
@@ -521,7 +624,7 @@ const ProductDetails = () => {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: "0.9rem",
+                        fontSize: { xs: ".8rem", md: ".9rem" },
                         fontWeight: "400",
                         color: "#2D2C2C",
                         mt: 2,
@@ -533,8 +636,8 @@ const ProductDetails = () => {
                     <Box display={"flex"} gap={2}>
                       {review?.images?.map((dt) => (
                         <Box
-                          height={150}
-                          width={150}
+                          height={{ xs: 100, md: 150 }}
+                          width={{ xs: 100, md: 150 }}
                           bgcolor={"#D9D9D9"}
                           borderRadius={1}
                           mt={4}
@@ -545,7 +648,7 @@ const ProductDetails = () => {
                 ))}
                 <Typography
                   sx={{
-                    fontSize: "0.9rem",
+                    fontSize: { xs: ".8rem", md: ".9rem" },
                     fontWeight: "600",
                     color: "#FF6C86",
                     cursor: "pointer",
@@ -555,11 +658,11 @@ const ProductDetails = () => {
                   View more reviews
                 </Typography>
               </Grid>
-              <Grid item md={6}>
+              <Grid item md={6} width={"100%"}>
                 <Box p={2}>
                   <Typography
                     sx={{
-                      fontSize: "1.25rem",
+                      fontSize: { xs: "1rem", md: "1.25rem" },
                       fontWeight: "400",
                       mb: 3,
                     }}
@@ -569,7 +672,7 @@ const ProductDetails = () => {
                   <Box display={"flex"} gap={1} alignItems={"center"} mt={1}>
                     <Typography
                       sx={{
-                        fontSize: ".9rem",
+                        fontSize: { xs: ".8rem", md: ".9rem" },
                         fontWeight: "400",
                         width: 140,
                       }}
@@ -585,7 +688,7 @@ const ProductDetails = () => {
                   <Box display={"flex"} gap={1} alignItems={"center"} mt={1}>
                     <Typography
                       sx={{
-                        fontSize: ".9rem",
+                        fontSize: { xs: ".8rem", md: ".9rem" },
                         fontWeight: "400",
                         width: 140,
                       }}
@@ -601,7 +704,7 @@ const ProductDetails = () => {
                   <Box display={"flex"} gap={1} alignItems={"center"} mt={1}>
                     <Typography
                       sx={{
-                        fontSize: ".9rem",
+                        fontSize: { xs: ".8rem", md: ".9rem" },
                         fontWeight: "400",
                         width: 140,
                       }}
@@ -617,7 +720,7 @@ const ProductDetails = () => {
                   <Box display={"flex"} gap={1} alignItems={"center"} mt={1}>
                     <Typography
                       sx={{
-                        fontSize: ".9rem",
+                        fontSize: { xs: ".8rem", md: ".9rem" },
                         fontWeight: "400",
                         width: 140,
                       }}
@@ -675,9 +778,9 @@ const ProductDetails = () => {
                         bgcolor: "#FF6C86",
                         borderRadius: "25px",
                         color: "#fff",
-                        fontSize: "1rem",
+                        fontSize: { xs: ".9rem", md: "1rem" },
                         textTransform: "capitalize",
-                        px: 4,
+                        px: { xs: 2, md: 4 },
                         py: 1,
                         ":hover": {
                           bgcolor: "#FF6C86",
@@ -686,8 +789,13 @@ const ProductDetails = () => {
                     >
                       Submit Review
                     </Button>
-                    <Box display={"flex"} alignItems={"center"} gap={1} sx={{cursor:'pointer'}}>
-                      <img src={attach} alt="" height={18}/>
+                    <Box
+                      display={"flex"}
+                      alignItems={"center"}
+                      gap={1}
+                      sx={{ cursor: "pointer" }}
+                    >
+                      <img src={attach} alt="" height={18} />
                       <Typography sx={{ color: "#FF6C86", fontSize: ".9rem" }}>
                         Attach files
                       </Typography>
@@ -698,7 +806,7 @@ const ProductDetails = () => {
             </Grid>
           </Box>
           <Box my={4}>
-          <ProductCaousel title="Recommended" />
+            <ProductCaousel title="Recommended" />
           </Box>
         </Box>
       </Box>

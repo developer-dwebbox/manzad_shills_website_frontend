@@ -12,10 +12,10 @@ const Cart = () => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        <Box py={4}>
+        <Box py={{xs:2,md:4}}>
           <Typography
             variant="h4"
-            sx={{ fontSize: "1.45rem", fontWeight: "400" }}
+            sx={{ fontSize: {xs:'1rem',md:'1.45rem'}, fontWeight: "400" }}
           >
             {" "}
             Cart
@@ -36,7 +36,7 @@ const Cart = () => {
           overflow={"auto"}
           pl={4}
         >
-          <Grid container minWidth={"750px"}>
+          <Grid container minWidth={{xs:'550px',md:"750px"}}>
             <Grid item xs={6}>
               <Typography
                 variant="subtitle1"
@@ -44,6 +44,7 @@ const Cart = () => {
                 sx={{
                   color: "#2D2C2C",
                   fontWeight: 500,
+                  fontSize: {xs:'.9rem',md:'1rem'}
                   // marginY: 3,
                 }}
               >
@@ -59,6 +60,7 @@ const Cart = () => {
                   fontWeight: 500,
                   // marginY: 3,
                   textAlign: "center",
+                  fontSize: {xs:'.9rem',md:'1rem'}
                 }}
               >
                 Quantity
@@ -73,13 +75,14 @@ const Cart = () => {
                   fontWeight: 500,
                   // marginY: 3,
                   textAlign: "center",
+                  fontSize: {xs:'.9rem',md:'1rem'}
                 }}
               >
                 Total
               </Typography>
             </Grid>
           </Grid>
-          <hr style={{ margin: "10px 0", color: "#CDD8E3" }} />
+          <hr style={{ margin: "10px 0", color: "#CDD8E3",minWidth:'700px' }} />
           {[0, 1, 2].map((dt) => (
             <ShoppingCard />
           ))}
@@ -112,7 +115,7 @@ const Cart = () => {
                   color: "#2D2C2C",
                   fontWeight: 500,
                   marginBottom: 3,
-                  fontSize: "1.2rem",
+                  fontSize: {xs:'1rem',md:'1.2rem'}
                 }}
               >
                 Price Details
@@ -132,7 +135,7 @@ const Cart = () => {
                     color: "#242424",
                     fontWeight: 500,
                     // marginY: 3,
-                    fontSize: "1.1rem",
+                    fontSize: {xs:'.9rem',md:'1.1rem'}
                   }}
                 >
                   Products:
@@ -143,7 +146,7 @@ const Cart = () => {
                   sx={{
                     color: "#242424",
                     fontWeight: 500,
-                    fontSize: "1.1rem",
+                    fontSize: {xs:'.9rem',md:'1.1rem'}
                     // marginY: 3,
                   }}
                 >
@@ -165,7 +168,7 @@ const Cart = () => {
                     color: "#242424",
                     fontWeight: 500,
                     // marginY: 3,
-                    fontSize: "1.1rem",
+                    fontSize: {xs:'.9rem',md:'1.1rem'}
                   }}
                 >
                   Subtotal:
@@ -176,7 +179,7 @@ const Cart = () => {
                   sx={{
                     color: "#242424",
                     fontWeight: 500,
-                    fontSize: "1.1rem",
+                    fontSize: {xs:'.9rem',md:'1.1rem'}
                     // marginY: 3,
                   }}
                 >
@@ -198,7 +201,7 @@ const Cart = () => {
                     color: "#242424",
                     fontWeight: 500,
                     // marginY: 3,
-                    fontSize: "1.1rem",
+                    fontSize: {xs:'.9rem',md:'1.1rem'}
                   }}
                 >
                   Discount:
@@ -209,7 +212,7 @@ const Cart = () => {
                   sx={{
                     color: "#6FCF97",
                     fontWeight: 500,
-                    fontSize: "1.1rem",
+                    fontSize: {xs:'.9rem',md:'1.1rem'}
                     // marginY: 3,
                   }}
                 >
@@ -231,7 +234,7 @@ const Cart = () => {
                     color: "#242424",
                     fontWeight: 500,
                     // marginY: 3,
-                    fontSize: "1.1rem",
+                    fontSize: {xs:'.9rem',md:'1.1rem'}
                   }}
                 >
                   Shipping:
@@ -242,7 +245,7 @@ const Cart = () => {
                   sx={{
                     color: "#242424",
                     fontWeight: 500,
-                    fontSize: "1.1rem",
+                    fontSize: {xs:'.9rem',md:'1.1rem'}
                     // marginY: 3,
                   }}
                 >
@@ -264,7 +267,7 @@ const Cart = () => {
                   sx={{
                     color: "#858D97",
                     fontWeight: 400,
-                    fontSize: "1rem",
+                    fontSize: {xs:'.8rem',md:'1rem'}
                     // marginY: 3,
                   }}
                 >
@@ -276,7 +279,7 @@ const Cart = () => {
                   sx={{
                     color: "#FF6C86",
                     fontWeight: 500,
-                    fontSize: "1rem",
+                    fontSize: {xs:'.8rem',md:'1rem'},
                     // marginY: 3,
                     textDecoration: "underline",
                     cursor: "pointer",
@@ -304,7 +307,7 @@ const Cart = () => {
                     bgcolor: "#FF6C86",
                     borderRadius: "25px",
                     color: "#fff",
-                    fontSize: "1rem",
+                    fontSize: {xs:'.8rem',md:'1rem'},
                     textTransform: "capitalize",
                     px: 3,
                     py: 1,
@@ -332,7 +335,7 @@ const Cart = () => {
                     color: "#242424",
                     fontWeight: 500,
                     // marginY: 3,
-                    fontSize: "1.2rem",
+                    fontSize: {xs:'1rem',md:'1.2rem'},
                   }}
                 >
                   Cart Total:
@@ -343,7 +346,7 @@ const Cart = () => {
                   sx={{
                     color: "#FF6C86",
                     fontWeight: 500,
-                    fontSize: "1.2rem",
+                    fontSize: {xs:'1rem',md:'1.2rem'},
                     // marginY: 3,
                   }}
                 >
@@ -357,7 +360,7 @@ const Cart = () => {
                     bgcolor: "#FF6C86",
                     borderRadius: "25px",
                     color: "#fff",
-                    fontSize: "1rem",
+                    fontSize: {xs:'0.8rem',md:'1rem'},
                     textTransform: "capitalize",
                     px: 3,
                     py: 1,

@@ -8,6 +8,7 @@ const TextField = ({ label, ...props }) => {
     <FormGroup>
       <Typography
         variant="body1"
+        fontSize={{xs:'.9rem',md:'1rem'}}
         sx={{ color: "#828282", marginBottom: "4px", paddingLeft: "0px" }}
       >
         {label}

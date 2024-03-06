@@ -23,10 +23,10 @@ const Checkout = () => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        <Box py={4}>
+        <Box py={{ xs: 2, md: 4 }}>
           <Typography
             variant="h4"
-            sx={{ fontSize: "1.45rem", fontWeight: "400" }}
+            sx={{ fontSize: { xs: "1rem", md: "1.45rem" }, fontWeight: "400" }}
           >
             Checkout
           </Typography>
@@ -53,7 +53,7 @@ const Checkout = () => {
               color: "#2D2C2C",
               fontWeight: 400,
               marginBottom: 3,
-              fontSize: "1.3rem",
+              fontSize: { xs: "1.1rem", md: "1.3rem" },
             }}
           >
             Billing Details
@@ -101,7 +101,7 @@ const Checkout = () => {
           boxShadow={"rgba(149, 157, 165, 0.2) 0px 8px 24px"}
           borderRadius={2}
           // height={"60dvh"}
-          padding={4}
+          padding={{xs:2,md:4}}
           // paddingLeft={8}
         >
           <Box
@@ -109,8 +109,8 @@ const Checkout = () => {
             flexDirection={"column"}
             justifyContent={"space-between"}
             height={"100%"}
-            paddingLeft={4}
-            paddingTop={4}
+            paddingLeft={{ xs: 2, md: 4 }}
+            paddingTop={{ xs: 2, md: 4 }}
           >
             <Box>
               <Typography
@@ -120,7 +120,7 @@ const Checkout = () => {
                   color: "#2D2C2C",
                   fontWeight: 500,
                   marginBottom: 3,
-                  fontSize: "1.1rem",
+                  fontSize: { xs: "1rem", md: "1.1rem" },
                 }}
               >
                 Price Details
@@ -140,6 +140,7 @@ const Checkout = () => {
                         color: "#2D2C2C",
                         fontWeight: 400,
                         // marginY: 3,
+                        fontSize: { xs: ".9rem", md: "1rem" },
                       }}
                     >
                       Product
@@ -154,6 +155,7 @@ const Checkout = () => {
                         fontWeight: 400,
                         // marginY: 3,
                         textAlign: "center",
+                        fontSize: { xs: ".9rem", md: "1rem" },
                       }}
                     >
                       Quantity
@@ -168,6 +170,7 @@ const Checkout = () => {
                         fontWeight: 400,
                         // marginY: 3,
                         textAlign: "center",
+                        fontSize: { xs: ".9rem", md: "1rem" },
                       }}
                     >
                       Total
@@ -252,7 +255,7 @@ const Checkout = () => {
                     color: "#242424",
                     fontWeight: 400,
                     // marginY: 3,
-                    fontSize: "1rem",
+                    fontSize: { xs: ".9rem", md: "1rem" },
                   }}
                 >
                   Products:
@@ -263,7 +266,7 @@ const Checkout = () => {
                   sx={{
                     color: "#242424",
                     fontWeight: 400,
-                    fontSize: "1rem",
+                    fontSize: { xs: ".9rem", md: "1rem" },
                     // marginY: 3,
                   }}
                 >
@@ -285,7 +288,7 @@ const Checkout = () => {
                     color: "#242424",
                     fontWeight: 400,
                     // marginY: 3,
-                    fontSize: "1rem",
+                    fontSize: { xs: ".9rem", md: "1rem" },
                   }}
                 >
                   Subtotal:
@@ -296,7 +299,7 @@ const Checkout = () => {
                   sx={{
                     color: "#242424",
                     fontWeight: 400,
-                    fontSize: "1rem",
+                    fontSize: { xs: ".9rem", md: "1rem" },
                     // marginY: 3,
                   }}
                 >
@@ -318,7 +321,7 @@ const Checkout = () => {
                     color: "#242424",
                     fontWeight: 400,
                     // marginY: 3,
-                    fontSize: "1rem",
+                    fontSize: { xs: ".9rem", md: "1rem" },
                   }}
                 >
                   Discount:
@@ -329,7 +332,7 @@ const Checkout = () => {
                   sx={{
                     color: "#6FCF97",
                     fontWeight: 400,
-                    fontSize: "1rem",
+                    fontSize: { xs: ".9rem", md: "1rem" },
                     // marginY: 3,
                   }}
                 >
@@ -351,7 +354,7 @@ const Checkout = () => {
                     color: "#242424",
                     fontWeight: 400,
                     // marginY: 3,
-                    fontSize: "1rem",
+                    fontSize: { xs: ".9rem", md: "1rem" },
                   }}
                 >
                   Shipping:
@@ -362,7 +365,7 @@ const Checkout = () => {
                   sx={{
                     color: "#242424",
                     fontWeight: 400,
-                    fontSize: "1rem",
+                    fontSize: { xs: ".9rem", md: "1rem" },
                     // marginY: 3,
                   }}
                 >
@@ -379,10 +382,10 @@ const Checkout = () => {
               >
                 <FormControlLabel
                   value="patym"
-                  control={<Radio checked/>}
+                  control={<Radio checked />}
                   label="Paytm Payment Gateway"
                 />
-                <Box sx={{ height: 25 }} mt={1}>
+                <Box sx={{ height: {xs:20,md:25} }} mt={1}>
                   <img src={paytmLogo} height={"100%"} alt="" />
                 </Box>
                 <Typography
@@ -392,7 +395,7 @@ const Checkout = () => {
                   sx={{
                     color: "#858D97",
                     fontWeight: 400,
-                    fontSize: "0.9rem",
+                    fontSize: { xs: ".75rem", md: ".9rem" },
                   }}
                 >
                   Credit/Debit Cards, UPI, Wallet, Postpaid, Netbanking
@@ -403,7 +406,7 @@ const Checkout = () => {
                   borderRadius: 3,
                   boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
                   p: 1,
-                  px:2,
+                  px: 2,
                   my: 3,
                 }}
               >
@@ -428,7 +431,7 @@ const Checkout = () => {
                     color: "#242424",
                     fontWeight: 500,
                     // marginY: 3,
-                    fontSize: "1.15rem",
+                    fontSize: { xs: "1rem", md: "1.15rem" },
                   }}
                 >
                   Cart Total:
@@ -439,7 +442,7 @@ const Checkout = () => {
                   sx={{
                     color: "#FF6C86",
                     fontWeight: 500,
-                    fontSize: "1.15rem",
+                    fontSize: { xs: "1rem", md: "1.15rem" },
                     // marginY: 3,
                   }}
                 >
@@ -453,7 +456,7 @@ const Checkout = () => {
                   bgcolor: "#FF6C86",
                   borderRadius: "25px",
                   color: "#fff",
-                  fontSize: "1rem",
+                  fontSize: { xs: ".9rem", md: "1rem" },
                   textTransform: "capitalize",
                   px: 3,
                   py: 1,

@@ -12,7 +12,7 @@ const HeroSection = () => {
       </Grid>
       <Grid
         item
-        md={4}
+        xs={4}
         bgcolor={"#FFEFF2"}
         display={"flex"}
         justifyContent={"center"}
@@ -29,10 +29,15 @@ const HeroSection = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              height:'100%'
+              height: "100%",
             }}
           >
-            <Typography variant="h6" color={"#2D2C2C"} textAlign={"center"}>
+            <Typography
+              variant="h6"
+              color={"#2D2C2C"}
+              textAlign={"center"}
+              // fontSize={'7px'}
+            >
               Best Prices
             </Typography>
             <Box display={"flex"} justifyContent={"center"}>
@@ -73,7 +78,7 @@ const HeroSection = () => {
                   fontSize: "1.3rem",
                   textTransform: "capitalize",
                   px: 1,
-                  py: 2,
+                  py: 1,
                   boxShadow: "none",
                   border: "2px solid #FF6C86",
                   ":hover": {

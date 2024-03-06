@@ -5,14 +5,17 @@ import username from "../../assets/Home/username.svg";
 const BlogCards = () => {
   return (
     <Box
+      maxWidth={{ md: 350, xs: 180 }}
+      minWidth={{ md: 270, xs: 180 }}
       sx={{
         width: "100%",
         display: "flex",
         justifyContent: "center",
         my: 2,
-        boxShadow:'rgba(194, 194, 194, 0.2) 0px 8px 24px',
-        borderRadius:'14px',
-        py:5
+        boxShadow: "rgba(194, 194, 194, 0.2) 0px 8px 24px",
+        borderRadius: "14px",
+        py: 5,
+        mx: { xs: 2, sm: 0 },
       }}
     >
       <Box
@@ -26,18 +29,18 @@ const BlogCards = () => {
         <Typography
           variant="h5"
           fontWeight={400}
-          fontSize={"1rem"}
+          fontSize={{ xs: "0.6rem", md: "1rem" }}
           color={"#FF6C86"}
           textTransform={"uppercase"}
           letterSpacing={"7px"}
         >
           Hair Care
         </Typography>
-        <Box sx={{ width: "60%", my: 2 }}>
+        <Box sx={{ width: { xs: "85%", md: "60%" }, my: 2 }}>
           <Typography
             variant="h4"
             fontWeight={400}
-            fontSize={"1rem"}
+            fontSize={{ xs: "0.6rem", md: "1rem" }}
             textAlign={"center"}
             color={"#2D2C2C"}
           >
@@ -45,29 +48,31 @@ const BlogCards = () => {
           </Typography>
         </Box>
         <Box height={20} display={"flex"} alignItems={"center"} gap={1}>
-          <img src={username} alt="" height={"100%"} />
+          <Box height={{ xs: "80%", md: "100%" }}>
+            <img src={username} alt="" height={"100%"} />
+          </Box>
           <Typography
             variant="h6"
             fontWeight={400}
-            fontSize={"0.875rem"}
+            fontSize={{ xs: "0.5rem", md: "0.875rem" }}
             textAlign={"center"}
             color={"#858D97"}
           >
             Shills Professional
           </Typography>
         </Box>
-        <Box width={'60%'} display={'flex'} justifyContent={'center'}>
+        <Box width={"60%"} display={"flex"} justifyContent={"center"}>
           <Button
             variant="contained"
             sx={{
               mt: 2,
-              width: "100%",
+              width: { xs: "90%", md: "100%" },
               bgcolor: "#FF6C86",
               borderRadius: "25px",
               color: "#fff",
-              fontSize: "1rem",
+              fontSize: { xs: "0.7rem", md: "1rem" },
               textTransform: "capitalize",
-              px: 2,
+              px: { xs: 2, md: 2 },
               ":hover": {
                 bgcolor: "#FF6C86",
               },

@@ -20,17 +20,21 @@ const BlogSection = () => {
           Blog
         </Typography>
         <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            flexWrap: "wrap",
-          }}
+          sx={
+            {
+              // display: "flex",
+              // justifyContent: "space-evenly",
+              // flexWrap: "wrap",
+            }
+          }
         >
-          {[0, 1, 2].map((dt) => (
-            <Box key={dt} maxWidth={350} minWidth={270}>
-              <BlogCards />
-            </Box>
-          ))}
+          <CustomCarousel items={{ lg: 3, md: 3, sm: 3, xs: 2 }}>
+            {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((dt) => (
+              <Box key={dt} display={"flex"} justifyContent={"center"}>
+                <BlogCards />
+              </Box>
+            ))}
+          </CustomCarousel>
         </Box>
       </Box>
     </Box>

@@ -107,12 +107,12 @@ input[type="number"] {
   padding-left: 15px;
 }
 
-/* .react-multi-carousel-list{
+.carousel-container-subcategory{
   position: static !important;
-} */
+}
 
 .react-multi-carousel-item {
-  padding: 0px 0.6rem;
+  /* padding: 0px 0.6rem; */
 }
 .carousel {
   /* position: 'relative'; */

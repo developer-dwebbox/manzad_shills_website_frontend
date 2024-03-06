@@ -8,6 +8,8 @@ import Banner from "./Banner";
 import Banner2 from "./Banner2";
 import BlogSection from "./BlogSection";
 import Services from "./Services";
+import Review from "./Review";
+
 
 const Home = () => {
   return (
@@ -22,6 +24,7 @@ const Home = () => {
       <Banner2 />
       <ProductCaousel title="Last Viewed" />
       <Services />
+      <Review/>
       <BlogSection />
     </Box>
   );

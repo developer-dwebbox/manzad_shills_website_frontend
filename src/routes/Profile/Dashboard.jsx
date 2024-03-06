@@ -6,34 +6,46 @@ import address from "../../assets/Profile/address.svg";
 import accDetails from "../../assets/Profile/account.svg";
 import wishlist from "../../assets/Profile/wishlist.svg";
 import logout from "../../assets/Profile/logout.svg";
+import Profile from "./Profile";
+import { useLocation } from "react-router-dom";
 
 const Dashboard = () => {
+  
+  const location = useLocation();
   return (
-    <Box px={6} mt={4} minHeight={"90vh"}>
-      <Grid container>
-        {cardItems.map((item) => (
-          <Grid items p={2} md={4} xs={12} sm={6}>
-            <Box
-              sx={{
-                boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-                py: 5,
-                borderRadius:3,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 2,
-              }}
-            >
-              <Box height={40}>
-                <img src={item.icon} alt="" height={"100%"} />
+    <Box>
+      <Profile location = {location.pathname}/>
+      <Box px={{ xs: 3, sm: 6 }} mt={4} minHeight={"90vh"}>
+        <Grid container>
+          {cardItems.map((item) => (
+            <Grid items p={2} md={4} xs={12} sm={6}>
+              <Box
+                sx={{
+                  boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                  py: 5,
+                  borderRadius: 3,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 2,
+                }}
+              >
+                <Box height={{ xs: 32, md: 40 }}>
+                  <img src={item.icon} alt="" height={"100%"} />
+                </Box>
+                <Typography
+                  sx={{
+                    fontSize: { xs: ".9rem", md: "1.1rem" },
+                    fontWeight: "400",
+                  }}
+                >
+                  {item.name}
+                </Typography>
               </Box>
-              <Typography sx={{ fontSize: "1.1rem", fontWeight: "400" }}>
-                {item.name}
-              </Typography>
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </Box>
   );
 };

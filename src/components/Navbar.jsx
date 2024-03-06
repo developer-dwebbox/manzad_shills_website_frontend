@@ -26,6 +26,7 @@ import {
   Typography,
   alpha,
   Link,
+  Divider,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
@@ -36,16 +37,21 @@ import wishlistIcon from "../assets/navbar/Wishlist.svg";
 import cartIcon from "../assets/navbar/Cart.svg";
 import profileIcon from "../assets/navbar/Profile.svg";
 import menuIcon from "../assets/navbar/Menu.svg";
+import ShoppingCartDrawerCard from "./Cards/ShoppingCartDrawerCard";
 
 const Navbar = (props) => {
   const navigate = useNavigate();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [shoppingCartOpen, setShoppingCartMobileOpen] = React.useState(false);
   const [openIdx, setOpenIdx] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
+  };
+  const handleShoppingDrawerToggle = () => {
+    setShoppingCartMobileOpen((prevState) => !prevState);
   };
   const handleDropdownClose = () => {
     setAnchorEl(null);
@@ -118,6 +124,133 @@ const Navbar = (props) => {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const shoppingDrawer = (
+    <Box sx={{ textAlign: "center", height: "100%" }} py={2}>
+      <Box display={"flex"} justifyContent={"space-between"} p={2}>
+        <Typography
+          sx={{ fontSize: { xs: ".8rem", sm: ".9rem", md: "1.2rem" } }}
+        >
+          Shopping Cart
+        </Typography>
+        <Box onClick={handleShoppingDrawerToggle}>
+          <img src={close} width={30} alt="" style={{ cursor: "pointer" }} />
+        </Box>
+      </Box>
+      <Divider />
+      <Box maxHeight={"60%"} overflow={"auto"}>
+        {[0, 1, 2, 3, 4].map((item) => (
+          <Box my={2} px={3}>
+            <ShoppingCartDrawerCard />
+          </Box>
+        ))}
+      </Box>
+      <Divider sx={{ my: 2 }} />
+      <Box
+        px={2}
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+        mt={2}
+      >
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{
+            color: "#242424",
+            // marginY: 3,
+            fontSize: { xs: "1rem", md: "1.2rem" },
+          }}
+        >
+          Subtotal:
+        </Typography>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{
+            color: "#FF6C86",
+            fontSize: { xs: "1rem", md: "1.2rem" },
+            // marginY: 3,
+          }}
+        >
+          ₹4000
+        </Typography>
+      </Box>
+      <Divider sx={{ my: 2 }} />
+      <Box px={2}>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{
+            color: "#242424",
+            fontSize: { xs: ".75rem", md: ".9rem" },
+            // marginY: 3,
+            textAlign: "start",
+          }}
+        >
+          Add <span style={{ color: "#FF6C86" }}>₹1,024.00</span> to cart and
+          get free shipping!
+        </Typography>
+      </Box>
+      <Box
+        width={"100%"}
+        display={"flex"}
+        gap={2}
+        justifyContent={"center"}
+        mt={{ xs: 2, md: 0 }}
+        px={{ md: 2, xs: 1 }}
+        py={2}
+      >
+        <Box width={"50%"}>
+          <Button
+            onClick={()=>navigate(routes.cart.paths[0])}
+            variant="contained"
+            sx={{
+              width: "100%",
+              height: "100%",
+              bgcolor: "#FF6C86",
+              borderRadius: "25px",
+              color: "#fff",
+              fontSize: { xs: ".7rem", sm: ".8rem", md: ".9rem" },
+              textTransform: "capitalize",
+              px: { xs: 1, sm: 2, md: 3 },
+              py: 1,
+              boxShadow:'none',
+              ":hover": {
+                bgcolor: "#FF6C86",
+              },
+            }}
+          >
+            More Details
+          </Button>
+        </Box>
+        <Box width={"50%"}>
+          <Button
+            onClick={()=>navigate(routes.checkout.paths[0])}
+            variant="contained"
+            sx={{
+              width: "100%",
+              height: "100%",
+              bgcolor: "#FF6C86",
+              borderRadius: "25px",
+              color: "#fff",
+              fontSize: { xs: ".7rem", sm: ".8rem", md: ".9rem" },
+              textTransform: "capitalize",
+              px: { xs: 1, sm: 2, md: 3 },
+              py: 1,
+              boxShadow:'none',
+              ":hover": {
+                bgcolor: "#FF6C86",
+              },
+            }}
+          >
+            Checkout
+          </Button>
+        </Box>
+      </Box>
+    </Box>
+  );
   return (
     <div>
       <AppBar
@@ -282,7 +415,8 @@ const Navbar = (props) => {
                 </Box>
                 <Box
                   sx={{ height: { sm: 25, xs: 20 }, cursor: "pointer" }}
-                  onClick={() => navigate(routes.cart.paths[0])}
+                  // onClick={() => navigate(routes.cart.paths[0])}
+                  onClick={handleShoppingDrawerToggle}
                 >
                   <img src={cartIcon} alt="" height={"100%"} />
                 </Box>
@@ -445,6 +579,25 @@ const Navbar = (props) => {
           {drawer}
         </Drawer>
       </nav>
+      <Drawer
+        container={container}
+        variant="temporary"
+        anchor={"right"}
+        open={shoppingCartOpen}
+        onClose={handleShoppingDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          // display: { xs: "block", lg: "none" },
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: { xs: '100%', sm: 550 },
+          },
+        }}
+      >
+        {shoppingDrawer}
+      </Drawer>
     </div>
   );
 };

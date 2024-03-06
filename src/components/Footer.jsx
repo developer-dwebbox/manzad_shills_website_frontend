@@ -181,7 +181,7 @@ const footerData = [
       },
       {
         subTitle: "Blog",
-        path: "/",
+        path: "/blog",
         icon: "",
       },
     ],

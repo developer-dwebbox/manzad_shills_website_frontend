@@ -4,9 +4,14 @@ import loginBanner from "../../assets/Login/LoginBg.png";
 import TextField from "../../components/CustomComponent/TextField";
 import { useNavigate } from "react-router-dom";
 import routes from "../routes";
+import ForgotPassword from "../../components/Modal/ForgotPassword";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <Box
       sx={{
@@ -74,7 +79,7 @@ const Login = () => {
         </Grid>
         <Grid mt={2}>
           <Typography
-            // onClick={() => handleOpen()}
+            onClick={() => handleOpen()}
             gutterBottom={true}
             sx={{
               color: "#FF6C86",
@@ -136,6 +141,7 @@ const Login = () => {
           </Button>
         </Grid>
       </Box>
+      <ForgotPassword open={open} handleClose={handleClose}/>
     </Box>
   );
 };

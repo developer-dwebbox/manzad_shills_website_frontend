@@ -18,6 +18,7 @@ const LoginRoute = lazy(() => import("./Login/Login"));
 const ContactUsRoute = lazy(() => import("./ContactUs/ContactUs"));
 const RegisterRoute = lazy(() => import("./Register/Register"));
 const CompareRoute = lazy(() => import("./Compare/Compare"));
+const BlogRoute = lazy(() => import("./Blog/Blog"));
 
 const DashboardRoutes = lazy(() => import("./Profile/Dashboard"));
 const OrderRoutes = lazy(() => import("./Profile/Orders"));
@@ -103,6 +104,15 @@ export const UnProtectedRoute = {
     element: <CompareRoute />,
     protected: true,
     docTitle: "Comoare Page",
+    suspense: true,
+    fallback: <FallbackLoader />,
+  },
+  blog: {
+    key: "blog",
+    paths: ["/blog"],
+    element: <BlogRoute />,
+    protected: true,
+    docTitle: "Blog Page",
     suspense: true,
     fallback: <FallbackLoader />,
   },

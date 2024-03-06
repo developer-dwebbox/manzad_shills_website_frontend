@@ -57,7 +57,7 @@ const ProductView = ({ open, handleClose }) => {
           >
             Product Quick View
           </Typography>
-          <Box sx={{ cursor: "pointer" }} onClick={handleClose}>
+          <Box sx={{ cursor: "pointer" }} onClick={handleClose} height={{ xs: 35, sm: 45, md: 50 }}>
             <img src={close} alt="" />
           </Box>
         </Box>

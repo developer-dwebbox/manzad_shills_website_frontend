@@ -5,8 +5,8 @@ import username from "../../assets/Home/username.svg";
 const BlogCards = () => {
   return (
     <Box
-      maxWidth={{ md: 350, xs: 180 }}
-      minWidth={{ md: 270, xs: 180 }}
+      maxWidth={{ md: 350, sm: 240,  }}
+      minWidth={{ md: 270, xs: 170 }}
       sx={{
         width: "100%",
         display: "flex",

@@ -6,6 +6,7 @@ import close from "../../assets/Product/Close.svg";
 import wishlist from "../../assets/navbar/Wishlist.svg";
 import { useNavigate } from "react-router-dom";
 import ProductView from "../Modal/ProductView";
+import SelectVarientModal from "../Modal/SelectVarientModal";
 
 const ProductCards = ({ wishList = false }) => {
   const navigate = useNavigate();
@@ -151,6 +152,7 @@ const ProductCards = ({ wishList = false }) => {
         </Box>
       </Box>
       <ProductView open={open} handleClose={handleClose} />
+      {/* <SelectVarientModal  open={open} handleClose={handleClose}/> */}
     </Box>
   );
 };

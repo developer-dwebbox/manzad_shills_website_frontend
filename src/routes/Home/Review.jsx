@@ -184,11 +184,15 @@ const Review = () => {
               <div className={`keen-slider__slide number-slide${id} `}>
                 <Box
                   //   width={350}
+                  
                   height={"100%"}
                   bgcolor={"#FFFFFF"}
                   borderRadius={2}
                   py={4}
                   px={2}
+                  sx={{
+                    boxShadow :"rgba(149, 157, 165, 0.2) 0px 8px 24px"
+                  }}
                 >
                   <Typography
                     sx={{

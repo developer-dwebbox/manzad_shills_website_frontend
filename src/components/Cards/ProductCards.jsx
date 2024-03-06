@@ -1,21 +1,26 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Modal, Typography } from "@mui/material";
 import React from "react";
 import dummyImg from "../../assets/Product/Rectangle 1213.png";
 import eye from "../../assets/Product/eye.svg";
 import close from "../../assets/Product/Close.svg";
 import wishlist from "../../assets/navbar/Wishlist.svg";
 import { useNavigate } from "react-router-dom";
+import ProductView from "../Modal/ProductView";
+import SelectVarientModal from "../Modal/SelectVarientModal";
 
 const ProductCards = ({ wishList = false }) => {
   const navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <Box
-    onClick={()=>navigate('/productDetails')}
       sx={{
         width: "100%",
         display: "flex",
         justifyContent: "center",
         my: 2,
+        // flexGrow:1,
       }}
     >
       <Box
@@ -24,11 +29,10 @@ const ProductCards = ({ wishList = false }) => {
           height: "100%",
           width: "90%",
           borderRadius: "16px",
-          p: "1rem",
+          p: { md: "1rem", xs: "0.6rem" },
           display: "flex",
           flexDirection: "column",
           textAlign: "center",
-          cursor: "pointer",
           boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
         }}
       >
@@ -44,7 +48,12 @@ const ProductCards = ({ wishList = false }) => {
             mb: 1,
           }}
         >
-          <img src={dummyImg} alt="" height={"180px"} />
+          <Box
+            height={{ md: "165px", xs: "100px", cursor: "pointer" }}
+            onClick={() => navigate("/productDetails")}
+          >
+            <img src={dummyImg} alt="" height={"100%"} />
+          </Box>
           <Box
             sx={{
               position: "absolute",
@@ -57,12 +66,18 @@ const ProductCards = ({ wishList = false }) => {
           >
             {wishList ? (
               <>
-                <img src={close} alt="" height={35} />
+                <Box sx={{cursor:'pointer'}}>
+                  <img src={close} alt="" height={35} />
+                </Box>
               </>
             ) : (
               <>
-                <img src={wishlist} alt="" height={20} />
-                <img src={eye} alt="" height={25} />
+                <Box>
+                  <img src={wishlist} alt="" height={20} />
+                </Box>
+                <Box onClick={handleOpen} sx={{ cursor: "pointer" }}>
+                  <img src={eye} alt="" height={25} />
+                </Box>
               </>
             )}
           </Box>
@@ -73,12 +88,16 @@ const ProductCards = ({ wishList = false }) => {
           justifyContent={"start"}
           alignItems={"start"}
         >
-          <Typography variant="h4" fontSize={"1rem"} textAlign={"left"}>
+          <Typography
+            variant="h4"
+            fontSize={{ xs: "0.75rem", md: "1rem" }}
+            textAlign={"left"}
+          >
             24HR Full Coverage Foundation
           </Typography>
           <Typography
             variant="h6"
-            fontSize={"0.75rem"}
+            fontSize={{ xs: "0.6rem", md: "0.75rem" }}
             textAlign={"left"}
             fontWeight={400}
             color={"#858D97"}
@@ -86,14 +105,18 @@ const ProductCards = ({ wishList = false }) => {
           >
             24HR Full Coverage Foundation
           </Typography>
-          <Typography variant="h6" fontSize={"1.5rem"} color={"#FFD480"}>
+          <Typography
+            variant="h6"
+            fontSize={{ xs: "1.2rem", md: "1.5rem" }}
+            color={"#FFD480"}
+          >
             {[0, 1, 2, 3].map((dt) => (
               <>★</>
             ))}
           </Typography>
           <Typography
             variant="h6"
-            fontSize={"0.75rem"}
+            fontSize={{ xs: "0.6rem", md: "0.75rem" }}
             textAlign={"left"}
             fontWeight={400}
             color={"#858D97"}
@@ -101,7 +124,11 @@ const ProductCards = ({ wishList = false }) => {
           >
             In Stock
           </Typography>
-          <Typography variant="h4" fontSize={"1rem"} textAlign={"left"}>
+          <Typography
+            variant="h4"
+            fontSize={{ xs: "0.75rem", md: "1rem" }}
+            textAlign={"left"}
+          >
             ₹400
           </Typography>
           <Button
@@ -112,18 +139,20 @@ const ProductCards = ({ wishList = false }) => {
               bgcolor: "#FF6C86",
               borderRadius: "25px",
               color: "#fff",
-              fontSize: "1rem",
+              fontSize: { xs: "0.75rem", md: "1rem" },
               textTransform: "capitalize",
-              px: 2,
+              px: { xs: 1, md: 2 },
               ":hover": {
                 bgcolor: "#FF6C86",
               },
             }}
           >
-            Select Varient
+            Add to cart
           </Button>
         </Box>
       </Box>
+      <ProductView open={open} handleClose={handleClose} />
+      {/* <SelectVarientModal  open={open} handleClose={handleClose}/> */}
     </Box>
   );
 };

@@ -1,18 +1,29 @@
-import { Box, Tab, Tabs, Typography } from "@mui/material";
-import React from "react";
+import { Box, Link, Tab, Tabs, Typography } from "@mui/material";
+import React, { Suspense, useEffect } from "react";
 import profilebg from "../../assets/Profile/Profilebg.png";
-import Dashboard from "./Dashboard";
-import Orders from "./Orders";
+import profileImg from "../../assets/Profile/ProfileImg.png";
+// import Dashboard from "./Dashboard";
+// import Orders from "./Orders";
+// import Addresses from "./Addresses";
+// import AccountDetails from "./AccountDetails";
+import { Route, Routes, useLocation } from "react-router-dom";
+import OutletComponent from "../../components/OutletComponent";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 
-const Profile = () => {
+const Profile = ({ location }) => {
   const [value, setValue] = React.useState(0);
+  const navigate = useNavigate();
+  // const location = useLocation();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  // useEffect(() => {
+  //   navigate("/profile/dashboard");
+  // }, []);
+  console.log(location, "pathname");
   return (
-    <Box mb={4}>
+    <Box mb={8}>
       <Box
         bgcolor={"#FFF6F7"}
         display={"flex"}
@@ -31,61 +42,112 @@ const Profile = () => {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ position: "relative" }}>
-        <img src={profilebg} alt="" width={"100%"} />
-        <Box width={"100%"} display={"flex"} justifyContent={"center"}>
-          <Box>
-            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-              <Tabs value={value} onChange={handleChange}>
-                <Tab label="Item One" {...a11yProps(0)} />
-                <Tab label="Item Two" {...a11yProps(1)} />
-                <Tab label="Item Three" {...a11yProps(2)} />
-              </Tabs>
+      <Box>
+        {/* <Box sx={{height:150,width:150, borderRadius:'50%',border:'1px solid #fff',position:'absolute',top:0,zIndex:10}}>
+          <img src={profileImg} height={'100%'} width={'100%'} alt="" />
+        </Box> */}
+        <Box
+          sx={{ position: "relative" }}
+          borderBottom={"1px solid #00000033"}
+          height={"24vh"}
+        >
+          <img src={profilebg} alt="" width={"100%"} height={"100%"} />
+        </Box>
+        <Box
+          display={"flex"}
+          justifyContent={"center"}
+          // paddingRight={6}
+          borderBottom={"1px solid #00000033"}
+          flexWrap={"wrap"}
+          // gap={4}
+        >
+          <Box display={"flex"} gap={4} flexWrap={'wrap'}>
+            <Box
+              position={"relative"}
+              minWidth={150}
+              minHeight={50}
+              // bgcolor={"red"}
+            >
+              <Box
+              sx={{
+                height: 150,
+                width: 150,
+                borderRadius: "50%",
+                border: "1px solid #fff",
+                position: "absolute",
+                top: '-140%',
+                zIndex: 10,
+              }}
+            >
+              <img src={profileImg} height={"100%"} width={"100%"} alt="" />
             </Box>
-            <CustomTabPanel value={value} index={0}>
-              Item One
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={1}>
-              Item Two
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={2}>
-              Item Three
-            </CustomTabPanel>
+            </Box>
+            <Box display={"flex"} justifyContent={"space-between"} gap={{sx:0,md:4}} flex={1} minWidth={'750px'} overflow={'auto'}>
+              {profileRoute.map((_route) => (
+                <Link
+                  component={RouterLink}
+
+                  to={_route.path}
+                  sx={{
+                    padding: 2,
+                    minWidth:50,
+                    borderRadius: 8,
+                    px: 3,
+                    bgcolor: `${location === _route.path ? "#FF6C86" : ""}`,
+                    color: `${location === _route.path ? "#fff" : "#000"}`,
+                    textDecoration: "none",
+                  }}
+                >
+                  {_route.name}
+                </Link>
+              ))}
+              <Link
+                component={RouterLink}
+                to={"/"}
+                sx={{
+                  padding: 2,
+                  borderRadius: 8,
+                  px: 3,
+                  color: `${"#000"}`,
+                  textDecoration: "none",
+                }}
+              >
+                Logout
+              </Link>
+            </Box>
           </Box>
         </Box>
       </Box>
-
-      {/* <Dashboard/> */}
-      <Orders/>
     </Box>
   );
 };
 
 export default Profile;
 
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
-
-function CustomTabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
+const profileRoute = [
+  {
+    // component: <Dashboard />,
+    name: "Dashboard",
+    path: "/profile/dashboard",
+  },
+  {
+    // component: <Orders />,
+    name: "Orders",
+    path: "/profile/order",
+  },
+  {
+    // component: <Dashboard />,
+    name: "Downloads",
+    path: "/profile/download",
+  },
+  {
+    // component: <Addresses />,
+    name: "Address",
+    path: "/profile/address",
+  },
+  {
+    // component: <AccountDetails />,
+    name: "Account Details",
+    path: "/profile/account",
+  },
+];

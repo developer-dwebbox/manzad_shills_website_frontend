@@ -17,7 +17,7 @@ const Banner2 = () => {
           sx={{
             background: `url(${skincare})`,
             backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            backgroundSize: {md:"cover",xs:'cover'},
             height: {xs:'300px',sm:'350px',md:"400px"},
             mb: {xs:2,md:6},
             padding: 2,
@@ -25,18 +25,19 @@ const Banner2 = () => {
             borderRadius:2,
             display: "flex",
             alignItems: "end",
+            marginRight: {xs:5,sm:0},
           }}
         >
           <div>
             <Typography
               variant="h6"
-              sx={{ color: "#FFFFFF", fontSize: "1rem" }}
+              sx={{ color: "#FFFFFF", fontSize: {xs:'.8rem',md:"1rem"} }}
             >
               Best for All Skin Types
             </Typography>
             <Typography
               variant="h6"
-              sx={{ color: "#FFFFFF", fontSize: "2.5rem" }}
+              sx={{ color: "#FFFFFF", fontSize: {xs:'1.75rem',md:"2.5rem"} }}
             >
               Skin Care
             </Typography>
@@ -48,7 +49,7 @@ const Banner2 = () => {
                 bgcolor: "transparent",
                 borderRadius: "50px",
                 color: "#fff",
-                fontSize: "1rem",
+                fontSize: {xs:'.8rem',md:"1rem"},
                 textTransform: "capitalize",
                 px: 0,
                 py: 1,
@@ -70,7 +71,7 @@ const Banner2 = () => {
           sx={{
             background: `url(${haircare})`,
             backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            backgroundSize: {md:"cover",xs:'cover'},
             height: {xs:'300px',sm:'350px',md:"400px"},
             mt: {xs:2,md:6},
             padding: 2,
@@ -79,18 +80,19 @@ const Banner2 = () => {
             alignItems: "end",
             borderRadius: 2,
             justifyContent: "end",
+            marginLeft: {xs:5,sm:0},
           }}
         >
           <div>
             <Typography
               variant="h6"
-              sx={{ color: "#FFFFFF", fontSize: "1rem", textAlign: "end" }}
+              sx={{ color: "#FFFFFF", fontSize: {xs:'.8rem',md:"1rem"}, textAlign: "end" }}
             >
               Shine with the best
             </Typography>
             <Typography
               variant="h6"
-              sx={{ color: "#FFFFFF", fontSize: "2.5rem", textAlign: "end" }}
+              sx={{ color: "#FFFFFF", fontSize: {xs:'1.75rem',md:"2.5rem"}, textAlign: "end" }}
             >
               Hair Care
             </Typography>
@@ -103,7 +105,7 @@ const Banner2 = () => {
                   bgcolor: "transparent",
                   borderRadius: "50px",
                   color: "#fff",
-                  fontSize: "1rem",
+                  fontSize: {xs:'.8rem',md:"1rem"},
                   textTransform: "capitalize",
                   px: 0,
                   py: 1,

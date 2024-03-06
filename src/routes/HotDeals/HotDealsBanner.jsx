@@ -7,10 +7,10 @@ const HotDealsBanner = () => {
   return (
     <Box my={4} px={4}>
       <Grid container>
-        <Grid item md={6}>
-          <Box display={"flex"} justifyContent={"center"}>
-            <Box height={"100vh"}>
-              <img src={skincareBanner} alt="" height={"100%"} />
+        <Grid item md={6} width={'100%'}>
+          <Box display={"flex"} justifyContent={{xs:'end',md:"center"}} width={'100%'}>
+            <Box  width={{ xs: "90vw", sm: "60vw", md: "40vw" }}>
+              <img src={skincareBanner} alt="" width={"100%"} />
             </Box>
           </Box>
         </Grid>
@@ -26,13 +26,14 @@ const HotDealsBanner = () => {
                 display={"flex"}
                 alignItems={"end"}
                 flexDirection={"column"}
-                px={6}
+                px={{xs:4,md:6}}
+                pl={{xs:0,md:6}}
               >
                 <Typography
                   variant="h4"
                   textAlign={"right"}
                   color={"#FF6C86"}
-                  fontSize={"2rem"}
+                  fontSize={ { xs: "1.25rem", md: "2rem" }}
                 >
                   Shills Exclusive
                 </Typography>
@@ -40,7 +41,7 @@ const HotDealsBanner = () => {
                   variant="h4"
                   textAlign={"right"}
                   color={"#2D2C2C"}
-                  fontSize={"2rem"}
+                  fontSize={ { xs: "1.25rem", md: "2rem" }}
                 >
                   Skin Care Range
                 </Typography>
@@ -48,9 +49,9 @@ const HotDealsBanner = () => {
                   variant="h4"
                   textAlign={"right"}
                   color={"#858D97"}
-                  fontSize={"1rem"}
-                  width={"70%"}
-                  lineHeight={"30px"}
+                  fontSize={ { xs: ".75rem", md: "1rem" }}
+                  width={{xs:"100%",sm:"75%"}}
+                  lineHeight={ { xs: "18px", md: "30px" }}
                   mt={4}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -61,14 +62,14 @@ const HotDealsBanner = () => {
                   variant="contained"
                   sx={{
                     mt: 4,
-                    width: { xs: "50%", sm: "30%" },
+                    width: { xs: "70%", sm: "30%" },
                     bgcolor: "transparent",
                     borderRadius: "50px",
                     color: "#FF6C86",
-                    fontSize: "1rem",
+                    fontSize:  { xs: ".85rem", md: "1rem" },
                     textTransform: "capitalize",
                     px: 0,
-                    py: 2,
+                    py:  { xs: 1, md: 2 },
                     boxShadow: "none",
                     border: "2px solid #FF6C86",
                     ":hover": {
@@ -77,13 +78,13 @@ const HotDealsBanner = () => {
                     },
                   }}
                 >
-                  Shop Now
+                  Explore
                 </Button>
               </Box>
             </Box>
-            <Box>
-              <Box height={"60vh"} display={"flex"} justifyContent={"end"}>
-                <img src={skincareBanner2} alt="" height={"100%"} />
+            <Box display={"flex"} justifyContent={"end"}>
+              <Box  width={{ xs: "90vw", sm: "80vw", md: "40vw" }} >
+                <img src={skincareBanner2} alt="" width={"100%"} />
               </Box>
             </Box>
           </Box>

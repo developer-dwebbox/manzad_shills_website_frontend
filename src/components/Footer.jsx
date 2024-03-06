@@ -41,12 +41,12 @@ const Footer = () => {
             <Grid
               item
               md={3}
-              sm={6}
-              xs={12}
+              sm={4}
+              xs={6}
               flex={1}
               key={index}
-              width={"fit-content"}
-              minWidth={"200px"}
+              width={{ xs: "150px", md: "200px" }}
+              minWidth={{ xs: "150px", md: "200px" }}
               my={2}
             >
               <Typography
@@ -54,7 +54,7 @@ const Footer = () => {
                 sx={{
                   color: "#2D2C2C",
                   fontWeight: 500,
-                  fontSize: "1.2rem",
+                  fontSize: { xs: "1rem", md: "1.2rem" },
                   marginBottom: 1,
                   lineHeight: "40.5px",
                 }}
@@ -70,7 +70,7 @@ const Footer = () => {
                       color: "#2D2C2C",
                       cursor: "pointer",
                       fontWeight: 400,
-                      fontSize: "0.975rem",
+                      fontSize: { xs: ".75rem", md: ".975rem" },
                       display: "flex",
                       alignItems: "center",
                       gap: 1.5,
@@ -115,42 +115,12 @@ const Footer = () => {
               width: "fit-content",
               display: "flex",
               alignItems: "end",
-              fontSize: "1.1rem",
+              fontSize: { xs: ".95rem", md: "1.1rem" },
             }}
           >
             2023 Shillsprofessional. @All rights reserved
-            {/* <CopyrightIcon
-              fontSize="small"
-              sx={{ marginX: { xs: "0px", md: "2px" }, fontWeight: "400" }}
-            /> */}
           </Typography>
         </Grid>
-        {/* <Grid
-          item
-          xs={12}
-          sm={6}
-          display={"flex"}
-          justifyContent={{ xs: "flex-start", sm: "flex-end" }}
-        >
-          <Typography
-            my={3}
-            sx={{
-              color: "#465152",
-              fontWeight: "500",
-              width: "fit-content",
-            }}
-          >
-            Powered by{" "}
-            <span style={{ color: "#EE7F1C" }}>
-              <a
-                href="https://dwebbox.com/"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                D-WebBox
-              </a>
-            </span>
-          </Typography>
-        </Grid> */}
       </Grid>
     </Box>
   );
@@ -201,7 +171,7 @@ const footerData = [
       },
       {
         subTitle: "About",
-        path: "/",
+        path: "/about",
         icon: "",
       },
       {
@@ -211,7 +181,7 @@ const footerData = [
       },
       {
         subTitle: "Blog",
-        path: "/",
+        path: "/blog",
         icon: "",
       },
     ],
@@ -237,7 +207,7 @@ const footerData = [
       },
       {
         subTitle: "Contact",
-        path: "/",
+        path: "/contact",
         icon: "",
       },
       {

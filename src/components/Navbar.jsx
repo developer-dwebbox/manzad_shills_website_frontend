@@ -18,26 +18,43 @@ import {
   Drawer,
   IconButton,
   InputAdornment,
+  Menu,
+  MenuItem,
   Paper,
   TextField,
   Toolbar,
   Typography,
   alpha,
+  Link,
+  Divider,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
-import { Link, useNavigate } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import routes from "../routes/routes";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import wishlistIcon from "../assets/navbar/Wishlist.svg";
+import cartIcon from "../assets/navbar/Cart.svg";
+import profileIcon from "../assets/navbar/Profile.svg";
+import menuIcon from "../assets/navbar/Menu.svg";
+import ShoppingCartDrawerCard from "./Cards/ShoppingCartDrawerCard";
 
 const Navbar = (props) => {
   const navigate = useNavigate();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [shoppingCartOpen, setShoppingCartMobileOpen] = React.useState(false);
   const [openIdx, setOpenIdx] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
+  };
+  const handleShoppingDrawerToggle = () => {
+    setShoppingCartMobileOpen((prevState) => !prevState);
+  };
+  const handleDropdownClose = () => {
+    setAnchorEl(null);
   };
   const drawer = (
     <Box
@@ -52,7 +69,7 @@ const Navbar = (props) => {
         px={2}
       >
         <img src={logo} width={80} alt="" />
-        <img src={close} width={30} alt="" style={{cursor:'pointer'}}/>
+        <img src={close} width={30} alt="" style={{ cursor: "pointer" }} />
       </Box>
       <Box>
         <List>
@@ -107,6 +124,133 @@ const Navbar = (props) => {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const shoppingDrawer = (
+    <Box sx={{ textAlign: "center", height: "100%" }} py={2}>
+      <Box display={"flex"} justifyContent={"space-between"} p={2}>
+        <Typography
+          sx={{ fontSize: { xs: ".8rem", sm: ".9rem", md: "1.2rem" } }}
+        >
+          Shopping Cart
+        </Typography>
+        <Box onClick={handleShoppingDrawerToggle}>
+          <img src={close} width={30} alt="" style={{ cursor: "pointer" }} />
+        </Box>
+      </Box>
+      <Divider />
+      <Box maxHeight={"60%"} overflow={"auto"}>
+        {[0, 1, 2, 3, 4].map((item) => (
+          <Box my={2} px={3}>
+            <ShoppingCartDrawerCard />
+          </Box>
+        ))}
+      </Box>
+      <Divider sx={{ my: 2 }} />
+      <Box
+        px={2}
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+        mt={2}
+      >
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{
+            color: "#242424",
+            // marginY: 3,
+            fontSize: { xs: "1rem", md: "1.2rem" },
+          }}
+        >
+          Subtotal:
+        </Typography>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{
+            color: "#FF6C86",
+            fontSize: { xs: "1rem", md: "1.2rem" },
+            // marginY: 3,
+          }}
+        >
+          ₹4000
+        </Typography>
+      </Box>
+      <Divider sx={{ my: 2 }} />
+      <Box px={2}>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{
+            color: "#242424",
+            fontSize: { xs: ".75rem", md: ".9rem" },
+            // marginY: 3,
+            textAlign: "start",
+          }}
+        >
+          Add <span style={{ color: "#FF6C86" }}>₹1,024.00</span> to cart and
+          get free shipping!
+        </Typography>
+      </Box>
+      <Box
+        width={"100%"}
+        display={"flex"}
+        gap={2}
+        justifyContent={"center"}
+        mt={{ xs: 2, md: 0 }}
+        px={{ md: 2, xs: 1 }}
+        py={2}
+      >
+        <Box width={"50%"}>
+          <Button
+            onClick={()=>navigate(routes.cart.paths[0])}
+            variant="contained"
+            sx={{
+              width: "100%",
+              height: "100%",
+              bgcolor: "#FF6C86",
+              borderRadius: "25px",
+              color: "#fff",
+              fontSize: { xs: ".7rem", sm: ".8rem", md: ".9rem" },
+              textTransform: "capitalize",
+              px: { xs: 1, sm: 2, md: 3 },
+              py: 1,
+              boxShadow:'none',
+              ":hover": {
+                bgcolor: "#FF6C86",
+              },
+            }}
+          >
+            More Details
+          </Button>
+        </Box>
+        <Box width={"50%"}>
+          <Button
+            onClick={()=>navigate(routes.checkout.paths[0])}
+            variant="contained"
+            sx={{
+              width: "100%",
+              height: "100%",
+              bgcolor: "#FF6C86",
+              borderRadius: "25px",
+              color: "#fff",
+              fontSize: { xs: ".7rem", sm: ".8rem", md: ".9rem" },
+              textTransform: "capitalize",
+              px: { xs: 1, sm: 2, md: 3 },
+              py: 1,
+              boxShadow:'none',
+              ":hover": {
+                bgcolor: "#FF6C86",
+              },
+            }}
+          >
+            Checkout
+          </Button>
+        </Box>
+      </Box>
+    </Box>
+  );
   return (
     <div>
       <AppBar
@@ -155,17 +299,18 @@ const Navbar = (props) => {
               onClick={handleDrawerToggle}
               sx={{ mr: { sm: 2 }, display: { lg: "none" }, color: "black" }}
             >
-              <MenuIcon fontSize="50px" />
+              {/* <MenuIcon fontSize="50px" /> */}
+              <img src={menuIcon} alt="" />
             </IconButton>
             <Box
               sx={{
-                display: { sm: "block" },
+                display: { sm: "flex" },
                 width: { xs: 70, sm: 80, md: 90, lg: 110 },
                 cursor: "pointer",
               }}
               onClick={() => navigate(routes.home.paths[0])}
             >
-              <img src={logo} alt="" width={"100%"} />
+              <img src={logo} alt="" width={"100%"} height={"100%"} />
             </Box>
             {navItems.map((item, idx) => (
               <Typography
@@ -177,6 +322,7 @@ const Navbar = (props) => {
                 color={"#000"}
               >
                 <Link
+                  component={RouterLink}
                   to={item.path}
                   style={{ textDecoration: "none" }}
                   color={`#000`}
@@ -189,62 +335,147 @@ const Navbar = (props) => {
           <Box
             display={"flex"}
             alignItems={"center"}
-            justifyContent={"space-between"}
-            minWidth={{ xs: "65%", md: "45%" }}
+            justifyContent={{ sm: "space-between", xs: "end" }}
+            minWidth={{ sm: "80%", md: "50%" }}
           >
-            <Search>
-              <Paper
-                component={"form"}
-                sx={{
-                  borderRadius: 20,
-                  border: "1px solid #FF6C86",
-                  boxShadow: "none",
-                }}
-              >
-                <SearchField
-                  id="search"
-                  type="search"
-                  placeholder="Search for products"
-                  // onChange={(e) => setSearchText(e.target.value)}
-                  // value={searchText}
+            <Box
+              width={{ md: "65%", sm: "65%" }}
+              display={{ xs: "none", sm: "block" }}
+            >
+              <Search>
+                <Paper
+                  component={"form"}
                   sx={{
-                    width: "100%",
-                    borderRadius: 50,
-                    bgcolor: "#fff",
-                    outline: "none",
-                    border: "none",
-                    padding: "0 10px",
-                    height: "3em",
+                    borderRadius: 20,
+                    border: "1px solid #FF6C86",
+                    boxShadow: "none",
                   }}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment
-                        position="end"
-                        sx={{ cursor: "pointer" }}
-                        // onSubmit={() => {
-                        //   if (searchText.trim()) {
-                        //     navigate(`/search/${searchText.trim()}`);
-                        //   }
-                        // }}
-                      >
-                        <IconButton type="submit" onClick={()=>navigate('/search')}>
-                          <img src={search} alt="" height={20} />
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Paper>
-            </Search>
+                >
+                  <SearchField
+                    id="search"
+                    type="search"
+                    placeholder="Search for products"
+                    // onChange={(e) => setSearchText(e.target.value)}
+                    // value={searchText}
+                    sx={{
+                      width: "100%",
+                      borderRadius: 50,
+                      bgcolor: "#fff",
+                      outline: "none",
+                      border: "none",
+                      padding: "0 10px",
+                      height: "3em",
+                    }}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment
+                          position="end"
+                          sx={{ cursor: "pointer" }}
+                          // onSubmit={() => {
+                          //   if (searchText.trim()) {
+                          //     navigate(`/search/${searchText.trim()}`);
+                          //   }
+                          // }}
+                        >
+                          <IconButton
+                            type="submit"
+                            onClick={() => navigate("/search")}
+                          >
+                            <img src={search} alt="" height={20} />
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                </Paper>
+              </Search>
+            </Box>
             <Box
               sx={{
-                display: { xs: "none", lg: "flex" },
+                display: { sm: "flex", lg: "flex" },
                 height: "100%",
                 alignItems: "center",
                 minWidth: { md: "20%" },
               }}
             >
               <Box
+                px={2}
+                height={"100%"}
+                width={"100%"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={{ md: 4, xs: 2 }}
+              >
+                <Box
+                  sx={{ height: { sm: 25, xs: 20 }, cursor: "pointer" }}
+                  onClick={() => navigate(routes.wishList.paths[0])}
+                >
+                  <img src={wishlistIcon} alt="" height={"100%"} />
+                </Box>
+                <Box
+                  sx={{ height: { sm: 25, xs: 20 }, cursor: "pointer" }}
+                  // onClick={() => navigate(routes.cart.paths[0])}
+                  onClick={handleShoppingDrawerToggle}
+                >
+                  <img src={cartIcon} alt="" height={"100%"} />
+                </Box>
+                <Box>
+                  <Box
+                    sx={{ height: { sm: 25, xs: 20 }, cursor: "pointer" }}
+                    onClick={(e) => setAnchorEl(e.currentTarget)}
+                  >
+                    <img src={profileIcon} alt="" height={"100%"} />
+                  </Box>
+                  <Menu
+                    anchorEl={anchorEl}
+                    open={Boolean(anchorEl)}
+                    onClose={handleDropdownClose}
+                    sx={{ mt: ".4rem", minWidth: "25ch" }}
+                    elevation={0}
+                  >
+                    {rightMenuItems.map((dt) => (
+                      <MenuItem
+                        onClick={handleDropdownClose}
+                        sx={{ py: ".35rem", px: ".9rem" }}
+                      >
+                        <Link
+                          component={RouterLink}
+                          to={dt.path}
+                          color="inherit"
+                          sx={{
+                            textDecoration: "none",
+                            fontWeight: "400",
+                            fontSize: "16px",
+                            textAlign: "right",
+                            width: "100%",
+                          }}
+                        >
+                          {dt.name}
+                        </Link>
+                      </MenuItem>
+                    ))}
+                    <MenuItem
+                      onClick={handleDropdownClose}
+                      sx={{ py: ".35rem", px: ".9rem" }}
+                    >
+                      <Link
+                        color="inherit"
+                        sx={{
+                          textDecoration: "none",
+                          fontWeight: "400",
+                          fontSize: "16px",
+                          textAlign: "right",
+                          width: "100%",
+                        }}
+                      >
+                        Logout
+                      </Link>
+                    </MenuItem>
+                  </Menu>
+                </Box>
+              </Box>
+              {/* <Box
                 mx={2}
                 height={"100%"}
                 width={"100%"}
@@ -272,9 +503,59 @@ const Navbar = (props) => {
                 >
                   Login/Register
                 </Button>
-              </Box>
+              </Box> */}
             </Box>
           </Box>
+        </Toolbar>
+        <Toolbar sx={{ display: { sm: "none" }, width: "100%" }}>
+          <Search>
+            <Paper
+              component={"form"}
+              sx={{
+                borderRadius: 20,
+                border: "1px solid #FF6C86",
+                boxShadow: "none",
+                width: "100%",
+              }}
+            >
+              <SearchField
+                id="search"
+                type="search"
+                placeholder="Search for products"
+                // onChange={(e) => setSearchText(e.target.value)}
+                // value={searchText}
+                sx={{
+                  width: "100%",
+                  borderRadius: 50,
+                  bgcolor: "#fff",
+                  outline: "none",
+                  border: "none",
+                  padding: "0 10px",
+                  height: "3em",
+                }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment
+                      position="end"
+                      sx={{ cursor: "pointer" }}
+                      // onSubmit={() => {
+                      //   if (searchText.trim()) {
+                      //     navigate(`/search/${searchText.trim()}`);
+                      //   }
+                      // }}
+                    >
+                      <IconButton
+                        type="submit"
+                        onClick={() => navigate("/search")}
+                      >
+                        <img src={search} alt="" height={20} />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Paper>
+          </Search>
         </Toolbar>
       </AppBar>
       <QuickLinks />
@@ -298,6 +579,25 @@ const Navbar = (props) => {
           {drawer}
         </Drawer>
       </nav>
+      <Drawer
+        container={container}
+        variant="temporary"
+        anchor={"right"}
+        open={shoppingCartOpen}
+        onClose={handleShoppingDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          // display: { xs: "block", lg: "none" },
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: { xs: '100%', sm: 550 },
+          },
+        }}
+      >
+        {shoppingDrawer}
+      </Drawer>
     </div>
   );
 };
@@ -335,9 +635,9 @@ const Search = styled("div")(({ theme }) => ({
     width: "100%",
     transform: "scale(1)",
   },
-  [theme.breakpoints.up("md")]: {
-    width: "55ch",
-  },
+  // [theme.breakpoints.up("md")]: {
+  //   width: "45ch",
+  // },
 }));
 
 export const SearchField = styled(TextField)(() => ({
@@ -354,3 +654,26 @@ export const SearchField = styled(TextField)(() => ({
     padding: "0",
   },
 }));
+
+const rightMenuItems = [
+  {
+    name: "Dashboard",
+    path: "/profile/dashboard",
+  },
+  {
+    name: "Orders",
+    path: "/profile/order",
+  },
+  {
+    name: "Downloads",
+    path: "/profile/download",
+  },
+  {
+    name: "Address",
+    path: "/profile/address",
+  },
+  {
+    name: "Account Details",
+    path: "/profile/account",
+  },
+];

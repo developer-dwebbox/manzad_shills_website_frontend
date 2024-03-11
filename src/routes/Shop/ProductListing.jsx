@@ -23,6 +23,9 @@ const ProductListing = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  function valuetext(value) {
+    return `${value}°C`;
+  }
   return (
     <Box my={4} px={2}>
       <Box>
@@ -33,7 +36,7 @@ const ProductListing = () => {
               <Box>
                 <Typography
                   variant="h5"
-                  sx={{ color: "#2D2C2C", fontSize: "1rem" }}
+                  sx={{ color: "#2D2C2C", fontSize: "1rem",mb:4, }}
                 >
                   Price
                 </Typography>
@@ -42,8 +45,8 @@ const ProductListing = () => {
                     getAriaLabel={() => "Temperature range"}
                     value={value}
                     onChange={handleChange}
-                    valueLabelDisplay="auto"
-                    //   getAriaValueText={valuetext}
+                    valueLabelDisplay="on"
+                    getAriaValueText={valuetext}
                   />
                 </Box>
               </Box>
@@ -59,7 +62,7 @@ const ProductListing = () => {
                     sx={{
                       border: "none",
                       boxShadow: "none",
-                      p:0,
+                      p: 0,
                       "&:before": {
                         display: "none",
                         boxShadow: "none",
@@ -85,7 +88,7 @@ const ProductListing = () => {
                     <AccordionDetails
                       sx={{
                         p: 0,
-                        my:1,
+                        my: 1,
                         cursor: "pointer",
                         "&:before": {
                           display: "none",
@@ -132,7 +135,7 @@ const ProductListing = () => {
                       labelId="demo-select-small-label"
                       id="demo-select-small"
                       label="Sort by popularity"
-                      onChange={handleChange}
+                      // onChange={handleChange}
                       // variant="outlined"
                       sx={{
                         color: "#465152",
@@ -162,15 +165,17 @@ const ProductListing = () => {
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   <Typography
                     variant="h4"
-                    sx={{ color: "#465152", fontSize: { xs: ".7rem", md: "1rem" },}}
-                    
+                    sx={{
+                      color: "#465152",
+                      fontSize: { xs: ".7rem", md: "1rem" },
+                    }}
                   >
                     No. of Products
                   </Typography>
                   <FormControl
                     sx={{
                       m: 1,
-                      minWidth:{xs:50,md: 70},
+                      minWidth: { xs: 50, md: 70 },
                       outline: "1px solid #FF6C86",
                       borderRadius: 1,
                     }}
@@ -181,7 +186,7 @@ const ProductListing = () => {
                       id="demo-select-small"
                       value={10}
                       label="Age"
-                      onChange={handleChange}
+                      // onChange={handleChange}
                       variant="outlined"
                       sx={{
                         color: "#465152",
@@ -240,7 +245,8 @@ const ProductListing = () => {
                 gap={{ md: 1, xs: 0 }}
               >
                 {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((dt) => (
-                  <Box width={{ xs: 160, sm: 180, md: 220 }}>
+                  // <Box width={{ xs: 160, sm: 180, md: 220 }}>
+                  <Box minWidth={{ xs: 150, sm: 180, md: 220 }} maxWidth={{ xs: 200, sm: 220, md: 260 }} flex={1}>
                     <ProductCards />
                   </Box>
                 ))}
@@ -282,18 +288,19 @@ const PrettoSlider = styled(Slider)({
     fontSize: 12,
     background: "unset",
     padding: 0,
-    width: 32,
-    height: 32,
-    borderRadius: "50% 50% 50% 0",
-    backgroundColor: "#FF6C86",
-    transformOrigin: "bottom left",
-    transform: "translate(50%, -100%) rotate(-45deg) scale(0)",
-    "&::before": { display: "none" },
+    // width: 32,
+    // height: 32,
+    // borderRadius: "50% 50% 50% 0",
+    // backgroundColor: "#FF6C86",
+    color:'#000',
+    // transformOrigin: "bottom left",
+    // transform: "translate(50%, -100%) rotate(-45deg) scale(0)",
+    // "&::before": { content: "er" },
     "&.MuiSlider-valueLabelOpen": {
-      transform: "translate(50%, -100%) rotate(-45deg) scale(1)",
+      // transform: "translate(50%, -100%) rotate(-45deg) scale(1)",
     },
     "& > *": {
-      transform: "rotate(45deg)",
+      // transform: "rotate(45deg)",
     },
   },
 });

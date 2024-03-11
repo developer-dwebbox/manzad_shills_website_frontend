@@ -2,8 +2,10 @@ import React from "react";
 import { Alert, Box, Button, Grid, Typography } from "@mui/material";
 import ShoppingCard from "./ShoppingCard";
 import TextField from "../../components/CustomComponent/TextField";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
   return (
     <Box mb={4}>
       <Box
@@ -48,7 +50,7 @@ const Cart = () => {
                   // marginY: 3,
                 }}
               >
-                Product
+                Products
               </Typography>
             </Grid>
             <Grid item xs={3}>
@@ -354,6 +356,7 @@ const Cart = () => {
                 </Typography>
               </Box>
               <Button
+              onClick={()=>navigate('/checkout')}
                   variant="contained"
                   sx={{
                     my:2,

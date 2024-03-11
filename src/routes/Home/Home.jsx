@@ -19,9 +19,9 @@ const Home = () => {
       </Box>
       <SubcategorySection />
       <ProductCaousel title="New Arrivals" />
-      <Banner />
+      {/* <Banner /> */}
       <ProductCaousel title="Best Sellers" />
-      <Banner2 />
+      {/* <Banner2 /> */}
       <ProductCaousel title="Last Viewed" />
       <Services />
       <Review/>

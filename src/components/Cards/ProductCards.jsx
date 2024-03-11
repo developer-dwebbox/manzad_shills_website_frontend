@@ -103,7 +103,7 @@ const ProductCards = ({ wishList = false }) => {
             color={"#858D97"}
             fontFamily={"Poppins"}
           >
-            24HR Full Coverage Foundation
+            Makeup, Foundation
           </Typography>
           <Typography
             variant="h6"

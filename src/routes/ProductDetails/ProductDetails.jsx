@@ -49,6 +49,7 @@ const ProductDetails = () => {
               fontSize: { xs: "1.25rem",sm:"1.5rem", md: "2rem" },
               fontWeight: "",
               textAlign: "center",
+              mb:2,
             }}
           >
             Product Details
@@ -210,7 +211,7 @@ const ProductDetails = () => {
             <Box
               sx={{
                 display: "flex",
-                justifyContent: { xs: "start", sm: "start" },
+                justifyContent: { xs: "space-evenly", sm: "start" },
                 flexWrap: "wrap",
                 gap: { sm: 2, xs: 1 },
                 my: 2,
@@ -221,21 +222,23 @@ const ProductDetails = () => {
                   md={2}
                   display={"flex"}
                   justifyContent={"center"}
+                  flexDirection = 'column'
                   p={1}
-                  pl={0}
-                  minWidth={100}
+                  // pl={0}
+                  // minWidth={100}
                 >
-                  <Box height={{ xs: 50, md: 90 }}>
+                  <Box height={{ xs: 50, md: 90 }}  display={"flex"}
+                  justifyContent={"center"}>
                     <img src={shade} alt="" height={"100%"} />
+                  </Box>
                     <Typography
                       sx={{
                         color: "#465152",
-                        fontSize: { xs: ".75rem", md: ".875rem" },
+                        fontSize: { xs: ".75rem", md: ".875rem",textAlign:'center' },
                       }}
                     >
                       Shade 014
                     </Typography>
-                  </Box>
                 </Box>
               ))}
             </Box>
@@ -391,6 +394,7 @@ const ProductDetails = () => {
               justifyContent={"space-between"}
               flexWrap={"wrap"}
               my={2}
+              gap={2}
             >
               <Box display={"flex"} gap={2} alignItems={"center"} onClick={()=>navigate('/compare')} sx={{cursor:'pointer'}}>
                 <img src={compare} height={20} alt="" />
@@ -450,7 +454,7 @@ const ProductDetails = () => {
               mb: 2,
             }}
           >
-            Description: Shills Professional’s Gel Polish boasts high
+            Shills Professional’s Gel Polish boasts high
             pigmentation, ensuring a smooth and long-lasting application.
             Available in an impressive range of 240 vibrant colors, it comes in
             a convenient 15ml bottle. This polish doesn’t chip, fade, or lose
@@ -778,7 +782,7 @@ const ProductDetails = () => {
                         bgcolor: "#FF6C86",
                         borderRadius: "25px",
                         color: "#fff",
-                        fontSize: { xs: ".9rem", md: "1rem" },
+                        fontSize: { xs: ".75rem",sm:'.9rem', md: "1rem" },
                         textTransform: "capitalize",
                         px: { xs: 2, md: 4 },
                         py: 1,
@@ -805,10 +809,10 @@ const ProductDetails = () => {
               </Grid>
             </Grid>
           </Box>
+        </Box>
           <Box my={4}>
             <ProductCaousel title="Recommended" />
           </Box>
-        </Box>
       </Box>
     </Box>
   );

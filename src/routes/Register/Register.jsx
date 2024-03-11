@@ -75,6 +75,15 @@ const Register = () => {
             onWheel={(e) => e.target.blur()}
           />
         </Grid>
+        <Grid width={"100%"} mt={3}>
+          <TextField
+            label="Password"
+            placeholder="Enter Password"
+            name="password"
+            type="password"
+            onWheel={(e) => e.target.blur()}
+          />
+        </Grid>
         <Grid mt={2}>
           <Button
             variant="contained"

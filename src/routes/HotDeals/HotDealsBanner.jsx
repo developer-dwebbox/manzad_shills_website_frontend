@@ -34,6 +34,7 @@ const HotDealsBanner = () => {
                   textAlign={"right"}
                   color={"#FF6C86"}
                   fontSize={ { xs: "1.25rem", md: "2rem" }}
+                  mb={2}
                 >
                   Shills Exclusive
                 </Typography>

@@ -96,7 +96,7 @@ const Navbar = (props) => {
                     setMobileOpen(!mobileOpen);
                   }}
                 >
-                  <ListItemText primary={data.name} />
+                  <ListItemText primary={data.name} sx={{fontWeight:600}} color={openIdx === data.id?"red":""}/>
                   {openIdx === data.id ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
               </ListItem>
@@ -270,7 +270,7 @@ const Navbar = (props) => {
         sx={{
           bgcolor: "#fff",
           color: "#2D2C2C",
-          height: { xs: "15vh", sm: "20vh" },
+          height: { xs: "20vh", sm: "20vh" },
           justifyContent: "center",
           boxShadow: "none",
           padding: { xs: "10px", lg: "0 40px" },

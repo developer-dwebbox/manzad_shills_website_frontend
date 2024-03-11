@@ -105,7 +105,7 @@ const Review = () => {
   return (
     <Box my={6}>
       <Box display={"flex"} flexWrap={"wrap"} justifyContent={'center'} alignItems={'center'} py={10} px={{xs:1,md:4}} sx={{backgroundImage:`url(${reviewbg})`,backgroundPosition:'contain'}} >
-        <Box width={{md:"40%}"}} minWidth={{md:400}}>
+        <Box width={{md:"40%}"}} minWidth={{xs:'0px',md:400}}>
           <Typography
             // variant="h6"
             width={{md:'50%'}}

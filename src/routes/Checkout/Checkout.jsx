@@ -3,6 +3,7 @@ import {
   Alert,
   Box,
   Button,
+  Divider,
   FormControlLabel,
   Grid,
   Radio,
@@ -13,6 +14,7 @@ import ShoppingCard from "./ShoppingCard";
 import TextField from "../../components/CustomComponent/TextField";
 import FileUploadInput from "../../components/CustomComponent/FileUploadInput";
 import paytmLogo from "../../assets/Cart/paytm.png";
+import offers from "../../assets/Cart/offers.svg";
 
 const Checkout = () => {
   return (
@@ -58,13 +60,15 @@ const Checkout = () => {
           >
             Billing Details
           </Typography>
-          <Box my={2} width={"90%"}>
+          <Box my={2} width={{sm:"90%"}}>
             <Box
               display={"flex"}
               justifyContent={"space-between"}
               alignItems={"end"}
+              flexDirection={{xs:'column',md:'row'}}
+              gap={2}
             >
-              <Box width={"50%"} pr={2}>
+              <Box width={{xs:'100%',md:"50%"}} pr={{md:2}}>
                 <TextField
                   label="Name *"
                   placeholder="Enter First Name"
@@ -72,7 +76,7 @@ const Checkout = () => {
                   type="text"
                 />
               </Box>
-              <Box width={"50%"} pl={2}>
+              <Box width={{xs:'100%',md:"50%"}} pl={{md:2}}>
                 <TextField
                   placeholder="Enter Last Name"
                   name="lname"
@@ -101,7 +105,7 @@ const Checkout = () => {
           boxShadow={"rgba(149, 157, 165, 0.2) 0px 8px 24px"}
           borderRadius={2}
           // height={"60dvh"}
-          padding={{xs:2,md:4}}
+          padding={{ xs: 2, md: 4 }}
           // paddingLeft={8}
         >
           <Box
@@ -198,12 +202,16 @@ const Checkout = () => {
                     flexDirection="row"
                     alignItems="center"
                     justifyContent={"space-between"}
+                    px={1}
                     sx={{
                       height: "50px",
                       backgroundColor: "#F2F4F9",
                       borderRadius: "6px",
                     }}
                   >
+                    <Box height={25} >
+                      <img src={offers} height={'100%'} alt="" />
+                    </Box>
                     <input
                       className="input-textfield"
                       placeholder="Enter coupon Code"
@@ -372,50 +380,7 @@ const Checkout = () => {
                   ₹400
                 </Typography>
               </Box>
-              <Box
-                sx={{
-                  borderRadius: 3,
-                  boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-                  p: 2,
-                  my: 3,
-                }}
-              >
-                <FormControlLabel
-                  value="patym"
-                  control={<Radio checked />}
-                  label="Paytm Payment Gateway"
-                />
-                <Box sx={{ height: {xs:20,md:25} }} mt={1}>
-                  <img src={paytmLogo} height={"100%"} alt="" />
-                </Box>
-                <Typography
-                  variant="subtitle1"
-                  component="div"
-                  mt={1}
-                  sx={{
-                    color: "#858D97",
-                    fontWeight: 400,
-                    fontSize: { xs: ".75rem", md: ".9rem" },
-                  }}
-                >
-                  Credit/Debit Cards, UPI, Wallet, Postpaid, Netbanking
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  borderRadius: 3,
-                  boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-                  p: 1,
-                  px: 2,
-                  my: 3,
-                }}
-              >
-                <FormControlLabel
-                  value="cod"
-                  control={<Radio />}
-                  label="Cash on Delivery"
-                />
-              </Box>
+              <Divider sx={{mt:2}}/>
               <Box
                 sx={{
                   display: "flex",
@@ -448,6 +413,50 @@ const Checkout = () => {
                 >
                   ₹4000
                 </Typography>
+              </Box>
+              <Box
+                sx={{
+                  borderRadius: 3,
+                  boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                  p: 2,
+                  my: 3,
+                }}
+              >
+                <FormControlLabel
+                  value="patym"
+                  control={<Radio checked />}
+                  label="Paytm Payment Gateway"
+                />
+                <Box sx={{ height: { xs: 20, md: 25 } }} mt={1}>
+                  <img src={paytmLogo} height={"100%"} alt="" />
+                </Box>
+                <Typography
+                  variant="subtitle1"
+                  component="div"
+                  mt={1}
+                  sx={{
+                    color: "#858D97",
+                    fontWeight: 400,
+                    fontSize: { xs: ".75rem", md: ".9rem" },
+                  }}
+                >
+                  Credit/Debit Cards, UPI, Wallet, Postpaid, Netbanking
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  borderRadius: 3,
+                  boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                  p: 1,
+                  px: 2,
+                  my: 3,
+                }}
+              >
+                <FormControlLabel
+                  value="cod"
+                  control={<Radio />}
+                  label="Cash on Delivery"
+                />
               </Box>
               <Button
                 variant="contained"

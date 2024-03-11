@@ -65,7 +65,7 @@ const Footer = () => {
                 <Link to={dt.path} style={{ textDecoration: "none" }}>
                   <Typography
                     key={id}
-                    my={3}
+                    my={{xs:1,md:3}}
                     sx={{
                       color: "#2D2C2C",
                       cursor: "pointer",
@@ -208,11 +208,6 @@ const footerData = [
       {
         subTitle: "Contact",
         path: "/contact",
-        icon: "",
-      },
-      {
-        subTitle: "Brushes & Tools",
-        path: "/",
         icon: "",
       },
     ],

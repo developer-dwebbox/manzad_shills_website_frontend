@@ -36,7 +36,7 @@ const LimitedTime = () => {
                   }}
                 >
                   {" "}
-                  <p style={{ color: "#FF6C86" }}> Hurry!! </p> Limited Time
+                  <p style={{ color: "#FF6C86",marginBottom:'10px' }}> Hurry!! </p> Limited Time
                   Offer
                 </Typography>
                 <Typography
@@ -53,7 +53,7 @@ const LimitedTime = () => {
                   do eiusmod.
                 </Typography>
                 <Box display={"flex"} gap={1} my={1}>
-                  {[0, 1, 2].map((dt) => (
+                  {[0, 1, 2,3].map((dt) => (
                     <Box
                       p={1}
                       sx={{
@@ -81,7 +81,7 @@ const LimitedTime = () => {
                     bgcolor: "transparent",
                     borderRadius: "50px",
                     color: "#FF6C86",
-                    fontSize: { xs: ".85rem", md: "1rem" },
+                    fontSize: { xs: ".85rem",sm:'1rem', md: "1.2rem" },
                     textTransform: "capitalize",
                     px: 0,
                     py: {xs:1,md:2},

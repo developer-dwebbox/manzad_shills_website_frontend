@@ -50,7 +50,7 @@ export const CustomCarousel = (props) => {
         // customTransition="all .5"
         // transitionDuration={500}
         containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile", "smMobile"]}
+        removeArrowOnDeviceType={["tablet", "mobile", "smMobile","desktop"]}
         deviceType="desktop"
         dotListClass="custom-dot-list-style"
         itemClass="center"

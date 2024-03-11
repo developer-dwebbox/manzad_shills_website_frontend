@@ -29,7 +29,7 @@ const BlogCards = () => {
         <Typography
           variant="h5"
           fontWeight={400}
-          fontSize={{ xs: "0.6rem", md: "1rem" }}
+          fontSize={{ xs: "0.6rem",sm:"1rem", md: "1.2rem" }}
           color={"#FF6C86"}
           textTransform={"uppercase"}
           letterSpacing={"7px"}
@@ -40,7 +40,7 @@ const BlogCards = () => {
           <Typography
             variant="h4"
             fontWeight={400}
-            fontSize={{ xs: "0.6rem", md: "1rem" }}
+            fontSize={{ xs: "0.6rem",sm:"1rem", md: "1.2rem" }}
             textAlign={"center"}
             color={"#2D2C2C"}
           >
@@ -70,7 +70,7 @@ const BlogCards = () => {
               bgcolor: "#FF6C86",
               borderRadius: "25px",
               color: "#fff",
-              fontSize: { xs: "0.7rem", md: "1rem" },
+              fontSize: { xs: "0.6rem",sm:"1rem", md: "1.2rem" },
               textTransform: "capitalize",
               px: { xs: 2, md: 2 },
               ":hover": {

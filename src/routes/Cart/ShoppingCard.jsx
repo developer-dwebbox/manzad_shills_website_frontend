@@ -66,7 +66,7 @@ const ShoppingCard = () => {
           }}
         //   pr={8}
         >
-          <Box sx={{ display: "flex", placeItems: "center" }}>
+          <Box sx={{ display: "flex", placeItems: "center",pl:1 }}>
             <Button
               sx={{
                 color: "black",

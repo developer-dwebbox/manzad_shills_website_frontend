@@ -17,7 +17,7 @@ const BlogSection = () => {
             textAlign: "center",
           }}
         >
-          Blog
+          Blogs
         </Typography>
         <Box
           sx={

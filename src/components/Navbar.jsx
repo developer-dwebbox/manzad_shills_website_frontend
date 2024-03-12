@@ -37,6 +37,7 @@ import wishlistIcon from "../assets/navbar/Wishlist.svg";
 import cartIcon from "../assets/navbar/Cart.svg";
 import profileIcon from "../assets/navbar/Profile.svg";
 import menuIcon from "../assets/navbar/Menu.svg";
+import phoneIcon from "../assets/navbar/phone.svg";
 import ShoppingCartDrawerCard from "./Cards/ShoppingCartDrawerCard";
 
 const Navbar = (props) => {
@@ -96,7 +97,11 @@ const Navbar = (props) => {
                     setMobileOpen(!mobileOpen);
                   }}
                 >
-                  <ListItemText primary={data.name} sx={{fontWeight:600}} color={openIdx === data.id?"red":""}/>
+                  <ListItemText
+                    primary={data.name}
+                    sx={{ fontWeight: 600 }}
+                    color={openIdx === data.id ? "red" : ""}
+                  />
                   {openIdx === data.id ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
               </ListItem>
@@ -204,7 +209,7 @@ const Navbar = (props) => {
       >
         <Box width={"50%"}>
           <Button
-            onClick={()=>navigate(routes.cart.paths[0])}
+            onClick={() => navigate(routes.cart.paths[0])}
             variant="contained"
             sx={{
               width: "100%",
@@ -216,7 +221,7 @@ const Navbar = (props) => {
               textTransform: "capitalize",
               px: { xs: 1, sm: 2, md: 3 },
               py: 1,
-              boxShadow:'none',
+              boxShadow: "none",
               ":hover": {
                 bgcolor: "#FF6C86",
               },
@@ -227,7 +232,7 @@ const Navbar = (props) => {
         </Box>
         <Box width={"50%"}>
           <Button
-            onClick={()=>navigate(routes.checkout.paths[0])}
+            onClick={() => navigate(routes.checkout.paths[0])}
             variant="contained"
             sx={{
               width: "100%",
@@ -239,7 +244,7 @@ const Navbar = (props) => {
               textTransform: "capitalize",
               px: { xs: 1, sm: 2, md: 3 },
               py: 1,
-              boxShadow:'none',
+              boxShadow: "none",
               ":hover": {
                 bgcolor: "#FF6C86",
               },
@@ -251,6 +256,7 @@ const Navbar = (props) => {
       </Box>
     </Box>
   );
+
   return (
     <div>
       <AppBar
@@ -262,7 +268,27 @@ const Navbar = (props) => {
           boxShadow: "none",
           padding: "0 40px",
         }}
-      ></AppBar>
+      >
+        <Box display={"flex"} justifyContent={{xs:'center',sm:"space-between"}} px-2>
+          <Typography fontSize={{xs:'.65rem',sm:".85rem"}} fontWeight={"500"}>
+            Sparkle more! Get 10% off with code <span style={{color:'#FF6C86',fontWeight:'500'}}>GLOW10</span> .
+          </Typography>
+          <Box display={{xs:"none",sm:"flex"}} gap={2} alignItems={"center"}>
+            <Box display={"flex"} gap={1} alignItems={"center"}>
+              <img src={phoneIcon} alt="" />
+              <Typography fontSize={".85rem"} fontWeight={"400"}>
+                Get App
+              </Typography>
+            </Box>
+            <Typography fontSize={"1rem"} fontWeight={"400"}>
+              |
+            </Typography>
+            <Typography fontSize={".85rem"} fontWeight={"400"}>
+              Help
+            </Typography>
+          </Box>
+        </Box>
+      </AppBar>
 
       <AppBar
         component="nav"
@@ -592,7 +618,7 @@ const Navbar = (props) => {
           // display: { xs: "block", lg: "none" },
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
-            width: { xs: '100%', sm: 550 },
+            width: { xs: "100%", sm: 550 },
           },
         }}
       >
